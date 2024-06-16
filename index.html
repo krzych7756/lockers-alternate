@@ -2257,12 +2257,13 @@ document.addEventListener("DOMContentLoaded", function() {
             const rect = cta.getBoundingClientRect();
             const windowHeight = window.innerHeight;
 
-            const centerOffset = (rect.top + rect.bottom) / 2 - windowHeight / 2;
-            const scale = 1 - Math.min(Math.abs(centerOffset / (windowHeight / 2)), 1) * 0.3;
-            const translateY = -centerOffset * 0.2;
+            const elementCenter = (rect.top + rect.bottom) / 2;
+            const distanceFromCenter = Math.abs(windowHeight / 2 - elementCenter);
 
-            cta.style.transform = `translateY(${translateY}px) scale(${scale})`;
-            cta.style.opacity = 1 - Math.min(Math.abs(centerOffset / (windowHeight / 2)), 1) * 0.5;
+            const maxDistance = windowHeight / 2;
+            const scale = 1 - (distanceFromCenter / maxDistance) * 0.5;  // Skalowanie od 1 do 0.5
+
+            cta.style.transform = `scale(${scale})`;
         });
 </script>
 </html>
