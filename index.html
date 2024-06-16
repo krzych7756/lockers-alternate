@@ -378,13 +378,14 @@ section.card-container {
     position: relative;
     transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 1;
-    width: 100%; /* Starting width is set to 10% */
     max-width: 1200px;
     height: auto;
+    display: flex;
+    justify-content: center;
 }
 
 #expand {
-    width: 0%; /* Initial width is set to 20% */
+    width: 20%; /* Initial width */
     min-width: 20%;
     max-width: 100%;
     min-height: 20px;
@@ -392,6 +393,7 @@ section.card-container {
     position: relative;
     transition: width 0.3s ease, height 0.3s ease;
     transform-origin: center;
+    margin: 0 auto;
 }
 .cta.show h2 {
     margin-bottom: 50px;
