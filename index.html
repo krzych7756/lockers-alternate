@@ -378,22 +378,21 @@ section.card-container {
     position: relative;
     transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 1;
+    width: 100%; /* Starting width is set to 10% */
     max-width: 1200px;
     height: auto;
-    display: flex;
-    justify-content: center;
 }
 
- #expand {
-    width: 20%; /* Początkowa szerokość */
-    height: 100px; /* Początkowa wysokość */
-    background-color: #3498db;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+#expand {
+    width: 20%; /* Initial width is set to 20% */
+    min-width: 20%;
+    max-width: 100%;
+    min-height: 20px;
+    max-height: 300px;
+    position: relative;
     transition: width 0.3s ease, height 0.3s ease;
-  }
+    transform-origin: center;
+}
 .cta.show h2 {
     margin-bottom: 50px;
 }
@@ -2246,20 +2245,35 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 100);
   });
 });
- document.querySelectorAll('.toggle-animation').forEach(button => {
-      button.addEventListener('click', () => {
-        const card = button.closest('.card-wrapper').querySelector('.card');
-        const content = card.querySelector('.card__content');
-        
-        card.classList.toggle('card--active');
-        button.classList.toggle('active');
+function changeSize() {
+    const element = document.getElementById('expand');
+    const boundingRect = element.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
 
-        if (card.classList.contains('card--active')) {
-          content.style.transform = 'rotateX(0deg)';
-        } else {
-          content.style.transform = 'rotateX(-90deg)';
-        }
-      });
-    });
+    // Calculate the distance from the center of the element to the center of the screen
+    const elementCenterY = boundingRect.top + (boundingRect.height / 2);
+    const windowCenterY = windowHeight / 2;
+    const distanceToCenter = Math.abs(elementCenterY - windowCenterY);
+
+    // Calculate the scaling factor based on the distance to the center
+    const maxDistance = windowHeight / 2;
+    const scale = 1 - Math.min(distanceToCenter / maxDistance, 1);
+
+    // Apply scaling to width and height
+    const minWidth = 20; // in percentage
+    const maxWidth = 100; // in percentage
+    const minHeight = 20; // in pixels
+    const maxHeight = 300; // in pixels
+
+    const newWidth = minWidth + (maxWidth - minWidth) * scale;
+    const newHeight = minHeight + (maxHeight - minHeight) * scale;
+
+    element.style.width = newWidth + '%';
+    element.style.height = newHeight + 'px';
+}
+
+window.addEventListener('scroll', function() {
+    requestAnimationFrame(changeSize);
+});
 </script>
 </html>
