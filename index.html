@@ -2259,16 +2259,20 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
     });
- document.addEventListener('scroll', function() {
+  document.addEventListener('scroll', function() {
             const cta = document.querySelector('.cta.show');
             const rect = cta.getBoundingClientRect();
             const windowHeight = window.innerHeight;
 
-            const elementCenter = rect.top + (rect.height / 2);
+            // Obliczanie odległości środka elementu od środka ekranu
+            const elementCenter = rect.top + rect.height / 2;
             const distanceFromCenter = Math.abs(windowHeight / 2 - elementCenter);
 
+            // Maksymalna odległość od środka ekranu
             const maxDistance = windowHeight / 2;
-            const scale = 1 + (1 - distanceFromCenter / maxDistance) * 0.5;  // Skalowanie od 1 do 1.5
+
+            // Skalowanie od 0.5 do 1.5
+            const scale = 1.5 - (distanceFromCenter / maxDistance);
 
             cta.style.transform = `scale(${scale})`;
         });
