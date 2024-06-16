@@ -386,13 +386,13 @@ section.card-container {
 #expand {
     width: 20%;
     min-width: 20%;
-    min-height: 200px;
+    min-height: 50px;
     max-width: 100%;
     max-height: 100vh;
     position: relative;
     transition: width 0.3s ease, height 0.3s ease;
+    transform-origin: center;
 }
-
 .cta.show h2 {
     margin-bottom: 50px;
 }
@@ -2276,9 +2276,9 @@ function changeSize() {
 
     // Apply scaling to width and height
     const minWidth = 20; // in percentage
-    const maxWidth = 100; // in percentage
-    const minHeight = 200; // in pixels
-    const maxHeight = windowHeight; // in pixels
+    const maxWidth = 80; // in percentage
+    const minHeight = 50; // in pixels
+    const maxHeight = 500; // in pixels
 
     const newWidth = minWidth + (maxWidth - minWidth) * scale;
     const newHeight = minHeight + (maxHeight - minHeight) * scale;
