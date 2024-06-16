@@ -369,18 +369,17 @@ section.card-container {
 
 .cta.show {
     background: rgba(230, 57, 70, 0.9);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    padding: 55px;
-    margin: 20px;
-    width: 1200px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    opacity: 1;
-    transform: translateY(20px) scale(0.8);
-    margin: 50px auto !important;
-    color: #fff;
-    transition: transform 0.1s ease, opacity 0.1s ease;
-    will-change: transform, opacity;
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 55px;
+            margin: 20px;
+            width: 1200px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 1;
+            transform: translateY(20px);
+            margin: 50px auto !important;
+            color: #fff;
 }
 
 .cta.show.approach-effect {
@@ -2253,22 +2252,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
     });
-document.addEventListener('scroll', function() {
-    const cta = document.querySelector('.cta.show');
-    const rect = cta.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
+  document.addEventListener('scroll', function() {
+            const cta = document.querySelector('.cta.show');
+            const rect = cta.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
 
-    // Calculate the distance from the center of the element to the center of the viewport
-    const elementCenter = rect.top + rect.height / 2;
-    const viewportCenter = windowHeight / 2;
-    const distanceFromCenter = Math.abs(viewportCenter - elementCenter);
+            const centerOffset = (rect.top + rect.bottom) / 2 - windowHeight / 2;
+            const scale = 1 - Math.min(Math.abs(centerOffset / (windowHeight / 2)), 1) * 0.3;
+            const translateY = -centerOffset * 0.2;
 
-    // Calculate the scale factor based on the distance from the center
-    const maxDistance = windowHeight / 2;
-    const scaleFactor = 0.8 + (1 - distanceFromCenter / maxDistance) * 0.4; // Adjust scaling effect as needed
-
-    // Apply the scale and translate
-    cta.style.transform = `translateY(20px) scale(${scaleFactor})`;
-});
+            cta.style.transform = `translateY(${translateY}px) scale(${scale})`;
+            cta.style.opacity = 1 - Math.min(Math.abs(centerOffset / (windowHeight / 2)), 1) * 0.5;
+        });
 </script>
 </html>
