@@ -2264,23 +2264,23 @@ function changeSize() {
     const element = document.getElementById('expand');
     const boundingRect = element.getBoundingClientRect();
     const windowHeight = window.innerHeight;
+    const windowWidth = window.innerWidth;
 
     // Calculate the distance from the center of the element to the center of the screen
     const elementCenterY = boundingRect.top + (boundingRect.height / 2);
     const windowCenterY = windowHeight / 2;
-    const distanceToCenter = Math.abs(elementCenterY - windowCenterY);
+    const distanceToCenterY = Math.abs(elementCenterY - windowCenterY);
+
+    const elementCenterX = boundingRect.left + (boundingRect.width / 2);
+    const windowCenterX = windowWidth / 2;
+    const distanceToCenterX = Math.abs(elementCenterX - windowCenterX);
 
     // Calculate the scaling factor based on the distance to the center
-    const maxDistance = windowHeight / 2;
-    const scale = 1 - Math.min(distanceToCenter / maxDistance, 10);
+    const maxDistanceY = windowHeight / 2;
+    const scaleY = 1 - Math.min(distanceToCenterY / maxDistanceY, 1);
 
- const elementCenterY = boundingRect.top + (boundingRect.width / 2);
-    const windowCenterY = windowWidth / 2;
-    const distanceToCenter = Math.abs(elementCenterY - windowCenterY);
-
-    // Calculate the scaling factor based on the distance to the center
-    const maxDistance = windowWidth / 2;
-    const scale = 1 - Math.min(distanceToCenter / maxDistance, 10);
+    const maxDistanceX = windowWidth / 2;
+    const scaleX = 1 - Math.min(distanceToCenterX / maxDistanceX, 1);
 
     // Apply scaling to width and height
     const minWidth = 20; // in percentage
@@ -2288,8 +2288,8 @@ function changeSize() {
     const minHeight = 20; // in pixels
     const maxHeight = 300; // in pixels
 
-    const newWidth = minWidth + (maxWidth - minWidth) * scale;
-    const newHeight = minHeight + (maxHeight - minHeight) * scale;
+    const newWidth = minWidth + (maxWidth - minWidth) * scaleX;
+    const newHeight = minHeight + (maxHeight - minHeight) * scaleY;
 
     element.style.width = newWidth + '%';
     element.style.height = newHeight + 'px';
