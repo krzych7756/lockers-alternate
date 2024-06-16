@@ -369,17 +369,23 @@ section.card-container {
 
 .cta.show {
     background: rgba(230, 57, 70, 0.9);
-     backdrop-filter: blur(10px);
-     border-radius: 10px;
-     padding: 55px;
-     margin: 20px;
-	 width: 1200px;
-     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-     transition: transform 0.3s ease, opacity 0.3s ease;
-     opacity: 1;
-     transform: translateY(20px);
-	 margin: 50px auto !important;
-     color: #fff;	 
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 55px;
+    margin: 20px;
+    width: 1200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    transform: translateY(20px) scale(0.8);
+    margin: 50px auto !important;
+    color: #fff;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    will-change: transform, opacity;
+}
+
+.cta.show.approach-effect {
+    transform: translateY(0) scale(1);
+    opacity: 1;
 }
 
 .cta.show h2 {
@@ -2247,5 +2253,16 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
     });
+document.addEventListener('scroll', function() {
+    const cta = document.querySelector('.cta.show');
+    const rect = cta.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    if (rect.top <= windowHeight / 2 && rect.bottom >= windowHeight / 2) {
+        cta.classList.add('approach-effect');
+    } else {
+        cta.classList.remove('approach-effect');
+    }
+});
 </script>
 </html>
