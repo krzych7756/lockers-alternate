@@ -2259,14 +2259,21 @@ function changeSize() {
     const element = document.getElementById('expand');
     const boundingRect = element.getBoundingClientRect();
     const windowHeight = window.innerHeight;
+    const windowWidth = window.innerWidth;
 
     // Calculate the distance from the center of the element to the center of the screen
     const elementCenterY = boundingRect.top + (boundingRect.height / 2);
     const windowCenterY = windowHeight / 2;
+    const elementCenterX = boundingRect.top + (boundingRect.width / 2);
+    const windowCenterX = windowWidth / 2;
     const distanceToCenter = Math.abs(elementCenterY - windowCenterY);
 
     // Calculate the scaling factor based on the distance to the center
     const maxDistance = windowHeight / 2;
+    const scale = 1 - Math.min(distanceToCenter / maxDistance, 1);
+
+    // Calculate the scaling factor based on the distance to the center
+    const maxDistance = windowWidth / 2;
     const scale = 1 - Math.min(distanceToCenter / maxDistance, 1);
 
     // Apply scaling to width and height
