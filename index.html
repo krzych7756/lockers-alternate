@@ -2274,6 +2274,14 @@ function changeSize() {
     const maxDistance = windowHeight / 2;
     const scale = 1 - Math.min(distanceToCenter / maxDistance, 10);
 
+ const elementCenterY = boundingRect.top + (boundingRect.width / 2);
+    const windowCenterY = windowWidth / 2;
+    const distanceToCenter = Math.abs(elementCenterY - windowCenterY);
+
+    // Calculate the scaling factor based on the distance to the center
+    const maxDistance = windowWidth / 2;
+    const scale = 1 - Math.min(distanceToCenter / maxDistance, 10);
+
     // Apply scaling to width and height
     const minWidth = 20; // in percentage
     const maxWidth = 100; // in percentage
