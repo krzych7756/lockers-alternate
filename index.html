@@ -369,27 +369,28 @@ section.card-container {
 
 .cta.show {
     background: rgba(230, 57, 70, 0.9);
-     backdrop-filter: blur(10px);
-     border-radius: 10px;
-     padding: 55px;
-     margin: 20px;
-	 width: 1200px;
-     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-     transition: transform 0.3s ease, opacity 0.3s ease;
-     opacity: 1;
-     transform: translateY(20px);
-	 margin: 50px auto !important;
-     color: #fff;
-	position: relative;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 50px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    position: relative;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
 }
 
 #expand {
-  background: #0380A7;
-  /* width: 100%; */
-  min-width: 20%;
-  min-height: 400px;
-  position: absolute;
-  will-change: width;
+    width: 20%;
+    min-width: 20%;
+    min-height: 200px;
+    max-width: 100%;
+    max-height: 100vh;
+    position: relative;
+    transition: width 0.3s ease, height 0.3s ease;
 }
 
 .cta.show h2 {
@@ -1699,11 +1700,12 @@ padding: 10px;
         </div>
     </div>
 </section>
-    <section id="cta" class="cta">
-      <div id="expand">
-        <h2>Zainteresowany? Skontaktuj się z nami!</h2>
-        <a href="#contact-form">Wypełnij formularz kontaktowy</a>
-    </section></div>
+    <section id="cta" class="cta show">
+        <div id="expand">
+            <h2>Zainteresowany? Skontaktuj się z nami!</h2>
+            <a href="#contact-form">Wypełnij formularz kontaktowy</a>
+        </div>
+    </section>
 <!-- Wygoda-->
 <section id="features" class="gryc-section">
     <div class="gryc-container text-center">
@@ -2258,16 +2260,35 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
     });
- function changeWidth() {
-      var scroll = (window.pageYOffset / 5);
-      var width = scroll;
-      // var width = Math.min(100 - scroll);
+function changeSize() {
+    const element = document.getElementById('expand');
+    const boundingRect = element.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
 
-      document.getElementById('expand').style.width = width + '%';
-    }
+    // Calculate the distance from the center of the element to the center of the screen
+    const elementCenterY = boundingRect.top + (boundingRect.height / 2);
+    const windowCenterY = windowHeight / 2;
+    const distanceToCenter = Math.abs(elementCenterY - windowCenterY);
 
-    window.addEventListener('scroll', function(){
-      requestAnimationFrame(changeWidth);
-    })
+    // Calculate the scaling factor based on the distance to the center
+    const maxDistance = windowHeight / 2;
+    const scale = 1 - Math.min(distanceToCenter / maxDistance, 1);
+
+    // Apply scaling to width and height
+    const minWidth = 20; // in percentage
+    const maxWidth = 100; // in percentage
+    const minHeight = 200; // in pixels
+    const maxHeight = windowHeight; // in pixels
+
+    const newWidth = minWidth + (maxWidth - minWidth) * scale;
+    const newHeight = minHeight + (maxHeight - minHeight) * scale;
+
+    element.style.width = newWidth + '%';
+    element.style.height = newHeight + 'px';
+}
+
+window.addEventListener('scroll', function() {
+    requestAnimationFrame(changeSize);
+});
 </script>
 </html>
