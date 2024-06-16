@@ -367,24 +367,19 @@ section.card-container {
     border-radius: .45rem;
      }
 
- .cta.show {
-            background: rgba(230, 57, 70, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 55px;
-            margin: 20px;
-            width: 1200px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            margin: 50px auto !important;
-            color: #fff;
-	  transition: transform 0.1s;
-            position: absolute;
-        }
-.cta.show.approach-effect {
-    transform: translateY(0) scale(1);
-    opacity: 1;
+.cta.show {
+    background: rgba(230, 57, 70, 0.9);
+     backdrop-filter: blur(10px);
+     border-radius: 10px;
+     padding: 55px;
+     margin: 20px;
+	 width: 1200px;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     transition: transform 0.3s ease, opacity 0.3s ease;
+     opacity: 1;
+     transform: translateY(20px);
+	 margin: 50px auto !important;
+     color: #fff;	 
 }
 
 .cta.show h2 {
@@ -2252,26 +2247,5 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
     });
- document.addEventListener('scroll', function() {
-            const element = document.querySelector('.X');
-            const elementRect = element.getBoundingClientRect();
-            const elementCenterY = elementRect.top + elementRect.height / 2;
-            const viewportHeight = window.innerHeight;
-            const viewportCenterY = viewportHeight / 2;
-
-            let scale = 1;
-
-            if (elementCenterY <= viewportCenterY) {
-                const scaleStep = 4 / viewportCenterY;
-                scale = 1 + (elementCenterY * scaleStep);
-            } else {
-                const scaleStep = 4 / viewportCenterY;
-                scale = 5 - ((elementCenterY - viewportCenterY) * scaleStep);
-            }
-
-            scale = Math.max(1, Math.min(5, scale));
-            element.style.transform = `scale(${scale})`;
-        });
-    </script>
 </script>
 </html>
