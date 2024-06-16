@@ -379,7 +379,7 @@ section.card-container {
     transform: translateY(20px) scale(0.8);
     margin: 50px auto !important;
     color: #fff;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.1s ease, opacity 0.1s ease;
     will-change: transform, opacity;
 }
 
@@ -2258,11 +2258,17 @@ document.addEventListener('scroll', function() {
     const rect = cta.getBoundingClientRect();
     const windowHeight = window.innerHeight;
 
-    if (rect.top <= windowHeight / 2 && rect.bottom >= windowHeight / 2) {
-        cta.classList.add('approach-effect');
-    } else {
-        cta.classList.remove('approach-effect');
-    }
+    // Calculate the distance from the center of the element to the center of the viewport
+    const elementCenter = rect.top + rect.height / 2;
+    const viewportCenter = windowHeight / 2;
+    const distanceFromCenter = Math.abs(viewportCenter - elementCenter);
+
+    // Calculate the scale factor based on the distance from the center
+    const maxDistance = windowHeight / 2;
+    const scaleFactor = 1 + (1 - distanceFromCenter / maxDistance) * 0.2; // Adjust scaling effect as needed
+
+    // Apply the scale and translate
+    cta.style.transform = `translateY(20px) scale(${scaleFactor})`;
 });
 </script>
 </html>
