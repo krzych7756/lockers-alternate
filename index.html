@@ -378,21 +378,20 @@ section.card-container {
     position: relative;
     transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 1;
-    width: auto;
+    width: 10%; /* Starting width is set to 10% */
     max-width: 1200px;
     height: auto;
 }
 
 #expand {
-    width: 20%;
-    min-width: 20%;
-    max-width: 80%;
-    min-height: 50px;
+    width: 10%; /* Initial width is set to 20% */
+    min-width: 10%;
+    max-width: 100%;
+    min-height: 20px;
     max-height: 300px;
     position: relative;
     transition: width 0.3s ease, height 0.3s ease;
     transform-origin: center;
-}
 }
 .cta.show h2 {
     margin-bottom: 50px;
@@ -2276,9 +2275,9 @@ function changeSize() {
     const scale = 1 - Math.min(distanceToCenter / maxDistance, 1);
 
     // Apply scaling to width and height
-    const minWidth = 20; // in percentage
-    const maxWidth = 80; // in percentage
-    const minHeight = 50; // in pixels
+    const minWidth = 10; // in percentage
+    const maxWidth = 100; // in percentage
+    const minHeight = 20; // in pixels
     const maxHeight = 300; // in pixels
 
     const newWidth = minWidth + (maxWidth - minWidth) * scale;
