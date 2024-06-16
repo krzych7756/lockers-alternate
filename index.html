@@ -379,7 +379,17 @@ section.card-container {
      opacity: 1;
      transform: translateY(20px);
 	 margin: 50px auto !important;
-     color: #fff;	 
+     color: #fff;
+	position: relative;
+}
+
+#expand {
+  background: #0380A7;
+  /* width: 100%; */
+  min-width: 20%;
+  min-height: 400px;
+  position: absolute;
+  will-change: width;
 }
 
 .cta.show h2 {
@@ -1690,9 +1700,10 @@ padding: 10px;
     </div>
 </section>
     <section id="cta" class="cta">
+      <div id="expand">
         <h2>Zainteresowany? Skontaktuj się z nami!</h2>
         <a href="#contact-form">Wypełnij formularz kontaktowy</a>
-    </section>
+    </section></div>
 <!-- Wygoda-->
 <section id="features" class="gryc-section">
     <div class="gryc-container text-center">
@@ -2247,5 +2258,16 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
     });
+ function changeWidth() {
+      var scroll = (window.pageYOffset / 5);
+      var width = scroll;
+      // var width = Math.min(100 - scroll);
+
+      document.getElementById('expand').style.width = width + '%';
+    }
+
+    window.addEventListener('scroll', function(){
+      requestAnimationFrame(changeWidth);
+    })
 </script>
 </html>
