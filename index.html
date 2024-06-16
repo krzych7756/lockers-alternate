@@ -369,30 +369,19 @@ section.card-container {
 
 .cta.show {
     background: rgba(230, 57, 70, 0.9);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    padding: 20px;
-    margin: 50px auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    color: #fff;
-    position: relative;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    opacity: 1;
-    width: 100%; /* Starting width is set to 10% */
-    max-width: 1200px;
-    height: auto;
+     backdrop-filter: blur(10px);
+     border-radius: 10px;
+     padding: 55px;
+     margin: 20px;
+	 width: 1200px;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     transition: transform 0.3s ease, opacity 0.3s ease;
+     opacity: 1;
+     transform: translateY(20px);
+	 margin: 50px auto !important;
+     color: #fff;	 
 }
 
-#expand {
-    width: 100% !important;
-    min-width: 20% !important;
-    max-width: 120% !important;
-    min-height: 20px !important;
-    max-height: 180px !important;
-    position: relative !important;
-    transition: width 0.3s ease 0s, height 0.3s ease 0s !important;
-    transform-origin: center center !important;
-}
 .cta.show h2 {
     margin-bottom: 50px;
 }
@@ -419,16 +408,6 @@ section.card-container {
     box-shadow: 0px 15px 20px rgba(255, 255, 255, 0.4);
     color: #1D3557;
     transform: translateY(-7px);
-}
-#expand {
-    width: 100% !important;
-    min-width: 20% !important;
-    max-width: 120% !important;
-    min-height: 20px !important;
-    max-height: 150px !important;
-    position: relative !important;
-    transition: width 0.3s ease 0s, height 0.3s ease 0s !important;
-    transform-origin: center center !important;
 }
 
 @keyframes pulse {
@@ -1710,11 +1689,9 @@ padding: 10px;
         </div>
     </div>
 </section>
-    <section id="cta" class="cta show">
-        <div id="expand">
-            <h2>Zainteresowany? Skontaktuj się z nami!</h2>
-            <a href="#contact-form">Wypełnij formularz kontaktowy</a>
-        </div>
+    <section id="cta" class="cta">
+        <h2>Zainteresowany? Skontaktuj się z nami!</h2>
+        <a href="#contact-form">Wypełnij formularz kontaktowy</a>
     </section>
 <!-- Wygoda-->
 <section id="features" class="gryc-section">
@@ -2255,42 +2232,20 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 100);
   });
 });
-function changeSize() {
-    const element = document.getElementById('expand');
-    const boundingRect = element.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    const windowWidth = window.innerWidth;
+ document.querySelectorAll('.toggle-animation').forEach(button => {
+      button.addEventListener('click', () => {
+        const card = button.closest('.card-wrapper').querySelector('.card');
+        const content = card.querySelector('.card__content');
+        
+        card.classList.toggle('card--active');
+        button.classList.toggle('active');
 
-    // Calculate the distance from the center of the element to the center of the screen
-    const elementCenterY = boundingRect.top + (boundingRect.height / 2);
-    const windowCenterY = windowHeight / 2;
-    const elementCenterX = boundingRect.top + (boundingRect.width / 2);
-    const windowCenterX = windowWidth / 2;
-    const distanceToCenter = Math.abs(elementCenterY - windowCenterY);
-
-    // Calculate the scaling factor based on the distance to the center
-    const maxDistance = windowHeight / 2;
-    const scale = 1 - Math.min(distanceToCenter / maxDistance, 1);
-
-    // Calculate the scaling factor based on the distance to the center
-    const maxDistance = windowWidth / 2;
-    const scale = 1 - Math.min(distanceToCenter / maxDistance, 1);
-
-    // Apply scaling to width and height
-    const minWidth = 20; // in percentage
-    const maxWidth = 100; // in percentage
-    const minHeight = 20; // in pixels
-    const maxHeight = 300; // in pixels
-
-    const newWidth = minWidth + (maxWidth - minWidth) * scale;
-    const newHeight = minHeight + (maxHeight - minHeight) * scale;
-
-    element.style.width = newWidth + '%';
-    element.style.height = newHeight + 'px';
-}}}
-
-window.addEventListener('scroll', function() {
-    requestAnimationFrame(changeSize);
-});
+        if (card.classList.contains('card--active')) {
+          content.style.transform = 'rotateX(0deg)';
+        } else {
+          content.style.transform = 'rotateX(-90deg)';
+        }
+      });
+    });
 </script>
 </html>
