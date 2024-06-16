@@ -2272,7 +2272,7 @@ function changeSize() {
 
     // Calculate the scaling factor based on the distance to the center
     const maxDistance = windowHeight / 2;
-    const scale = 1 - Math.min(distanceToCenter / maxDistance, 1);
+    const scale = 1 - Math.min(distanceToCenter / maxDistance, 10);
 
     // Apply scaling to width and height
     const minWidth = 10; // in percentage
@@ -2290,16 +2290,5 @@ function changeSize() {
 window.addEventListener('scroll', function() {
     requestAnimationFrame(changeSize);
 });
- function changeWidth() {
-      var scroll = (window.pageYOffset / 5);
-      var width = scroll;
-      // var width = Math.min(100 - scroll);
-
-      document.getElementById('expand').style.width = width + '%';
-    }
-
-    window.addEventListener('scroll', function(){
-      requestAnimationFrame(changeWidth);
-    })
 </script>
 </html>
