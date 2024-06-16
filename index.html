@@ -384,17 +384,16 @@ section.card-container {
     justify-content: center;
 }
 
-#expand {
-    width: 20%; /* Initial width */
-    min-width: 20%;
-    max-width: 100%;
-    min-height: 20px;
-    max-height: 300px;
-    position: relative;
+ #expand {
+    width: 20%; /* Początkowa szerokość */
+    height: 100px; /* Początkowa wysokość */
+    background-color: #3498db;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     transition: width 0.3s ease, height 0.3s ease;
-    transform-origin: center;
-    margin: 0 auto;
-}
+  }
 .cta.show h2 {
     margin-bottom: 50px;
 }
@@ -2262,43 +2261,5 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
     });
-function changeSize() {
-    const element = document.getElementById('expand');
-    const boundingRect = element.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    const windowWidth = window.innerWidth;
-
-    // Calculate the distance from the center of the element to the center of the screen
-    const elementCenterY = boundingRect.top + (boundingRect.height / 2);
-    const windowCenterY = windowHeight / 2;
-    const distanceToCenterY = Math.abs(elementCenterY - windowCenterY);
-
-    const elementCenterX = boundingRect.left + (boundingRect.width / 2);
-    const windowCenterX = windowWidth / 2;
-    const distanceToCenterX = Math.abs(elementCenterX - windowCenterX);
-
-    // Calculate the scaling factor based on the distance to the center
-    const maxDistanceY = windowHeight / 2;
-    const scaleY = 1 - Math.min(distanceToCenterY / maxDistanceY, 1);
-
-    const maxDistanceX = windowWidth / 2;
-    const scaleX = 1 - Math.min(distanceToCenterX / maxDistanceX, 1);
-
-    // Apply scaling to width and height
-    const minWidth = 200; // in percentage
-    const maxWidth = 20; // in percentage
-    const minHeight = 20; // in pixels
-    const maxHeight = 300; // in pixels
-
-    const newWidth = minWidth + (maxWidth - minWidth) * scaleX;
-    const newHeight = minHeight + (maxHeight - minHeight) * scaleY;
-
-    element.style.width = newWidth + '%';
-    element.style.height = newHeight + 'px';
-}
-
-window.addEventListener('scroll', function() {
-    requestAnimationFrame(changeSize);
-});
 </script>
 </html>
