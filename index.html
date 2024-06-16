@@ -2265,7 +2265,7 @@ document.addEventListener('scroll', function() {
 
     // Calculate the scale factor based on the distance from the center
     const maxDistance = windowHeight / 2;
-    const scaleFactor = 1 + (1 - distanceFromCenter / maxDistance) * 0.2; // Adjust scaling effect as needed
+    const scaleFactor = 0.8 + (1 - distanceFromCenter / maxDistance) * 0.4; // Adjust scaling effect as needed
 
     // Apply the scale and translate
     cta.style.transform = `translateY(20px) scale(${scaleFactor})`;
