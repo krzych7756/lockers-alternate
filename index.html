@@ -236,16 +236,16 @@ section.card-container {
   position: relative;
   width: 100%;
   max-width: 400px;
-  background-color: #ffffff;
+  background: linear-gradient(135deg, #6b73ff 0%, #000dff 100%);
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
@@ -255,25 +255,26 @@ section.card-container {
 
 .card__content {
   padding: 20px;
-  background-color: #1d3557;
   color: #ffffff;
+  text-align: center;
 }
 
 .card__title {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 15px;
-  color: #1d3557;
+  color: #ffffff;
 }
 
 .card__description {
   font-size: 16px;
   line-height: 1.5;
+  color: #e0e0e0;
 }
 
 .toggle-animation {
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 12px 24px;
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 500;
