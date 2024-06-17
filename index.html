@@ -2397,29 +2397,8 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(section);
   });
 
-  function animateCards() {
-    cards.forEach((card, index) => {
-      setTimeout(() => {
-        card.classList.add("zoom");
-        setTimeout(() => {
-          card.classList.remove("zoom");
-        }, 1000); // Czas trwania animacji zoom
-      }, index * 1000); // Opóźnienie między kartami
-    });
-  }
-});
-document.getElementById('faqLabel').addEventListener('click', function() {
+  document.getElementById('faqLabel').addEventListener('click', function() {
     document.getElementById('faq').classList.toggle('expanded');
-});
-
-document.getElementById('faqLabel').addEventListener('click', function() {
-    const faqSection = document.getElementById('faq');
-    faqSection.classList.toggle('expanded');
-    if (faqSection.classList.contains('expanded')) {
-        this.style.top = '-70px';
-    } else {
-        this.style.top = '-50px';
-    }
 });
 
 document.querySelectorAll('.faq-question').forEach(function(question) {
