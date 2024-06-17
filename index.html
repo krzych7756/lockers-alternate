@@ -2255,7 +2255,12 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
 document.addEventListener('DOMContentLoaded', function () {
-    const cta = document.querySelector('cta.show');
+    const cta = document.querySelector('.cta.show');
+
+    if (!cta) {
+        console.error('Element .cta.show nie został znaleziony!');
+        return;
+    }
 
     function scaleCTA() {
         const rect = cta.getBoundingClientRect();
@@ -2266,6 +2271,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const maxDistance = windowHeight / 2;
         const scale = 1 - (distanceToMidpoint / maxDistance) * 0.5;
         const opacity = 1 - (distanceToMidpoint / maxDistance) * 0.5;
+
+        console.log('Scale:', scale);
+        console.log('Opacity:', opacity);
 
         cta.style.transform = `scale(${scale})`;
         cta.style.opacity = opacity;
