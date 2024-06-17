@@ -2275,5 +2275,29 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('resize', scaleCTA);
     scaleCTA(); // Wywołanie na starcie
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const cta = document.querySelector('.cta.show');
+
+    function scaleCTA() {
+        const rect = cta.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const elementMidpoint = rect.top + (rect.height / 2);
+        const viewportMidpoint = windowHeight / 2;
+        const distanceToMidpoint = Math.abs(viewportMidpoint - elementMidpoint);
+        const maxDistance = windowHeight / 2;
+        const scale = 1 - (distanceToMidpoint / maxDistance) * 0.5;
+        const opacity = 1 - (distanceToMidpoint / maxDistance) * 0.5;
+
+        console.log('Scale:', scale);
+        console.log('Opacity:', opacity);
+
+        cta.style.transform = `scale(${scale})`;
+        cta.style.opacity = opacity;
+    }
+
+    window.addEventListener('scroll', scaleCTA);
+    window.addEventListener('resize', scaleCTA);
+    scaleCTA(); // Wywołanie na starcie
+});
 </script>
 </html>
