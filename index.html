@@ -389,6 +389,22 @@ section.card-container {
     border-radius: .45rem;
      }
 
+.card.zoom {
+  animation: zoomIn 1s ease;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .cta.show {
     background: rgba(230, 57, 70, 0.9);
      backdrop-filter: blur(10px);
@@ -2275,6 +2291,41 @@ document.addEventListener('DOMContentLoaded', function() {
         duration: 1200, // Czas trwania animacji w milisekundach
         once: true, // Czy animacja powinna wystąpić tylko raz
     });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".card");
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5
+  };
+
+  let observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Sekcja weszła w widok
+        setTimeout(() => {
+          animateCards();
+        }, 500); // Opóźnienie przed rozpoczęciem animacji
+        observer.unobserve(entry.target); // Odłącz obserwatora
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll(".outer-container").forEach(section => {
+    observer.observe(section);
+  });
+
+  function animateCards() {
+    cards.forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add("zoom");
+        setTimeout(() => {
+          card.classList.remove("zoom");
+        }, 1000); // Czas trwania animacji zoom
+      }, index * 1000); // Opóźnienie między kartami
+    });
+  }
 });
 </script>
 </html>
