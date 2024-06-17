@@ -1038,6 +1038,8 @@ backdrop-filter: blur(10px);
   overflow: hidden;
   border-radius: 10px;
   transition: transform 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
 
 img.unique-img {
@@ -1085,6 +1087,17 @@ img.unique-img {
 .container-unique:hover .text-unique {
   opacity: 1;
   visibility: visible;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @media only screen and (max-width: 800px) {
     body {
@@ -1805,37 +1818,37 @@ padding: 10px;
 <section>  
   <h1 class="unique-heading">Zdjęcia z realizacji</h1>
    <div class="container-all-unique" data-aos="fade-right">
-   <div class="container-unique">
+   <div class="container-unique" style="animation-delay: 0.1s;">
    <img class="unique-img" src="https://gryc24.pl/res/files/1-lp-lockers.svg" alt="">
    <span class="title-unique">Lorem ipsum dolor</span>
    <span class="text-unique">Morbi diam viverra mattis sociis magna, habitasse penatibus non lectus</span>
    </div>
-   <div class="container-unique">
+   <div class="container-unique" style="animation-delay: 0.2s;">
    <img class="unique-img" src="https://gryc24.pl/res/files/2-lp-lockers.svg" alt="">
    <span class="title-unique">Lorem ipsum dolor</span>
    <span class="text-unique">Morbi diam viverra mattis sociis magna, habitasse penatibus non lectus</span>
    </div>
-   <div class="container-unique">
+   <div class="container-unique" style="animation-delay: 0.3s;">
    <img class="unique-img" src="https://gryc24.pl/res/files/1-lp-lockers.svg" alt="">
    <span class="title-unique">Lorem ipsum dolor</span>
    <span class="text-unique">Morbi diam viverra mattis sociis magna, habitasse penatibus non lectus</span>
    </div>
-   <div class="container-unique">
+   <div class="container-unique" style="animation-delay: 0.4s;">
    <img class="unique-img" src="https://gryc24.pl/res/files/2-lp-lockers.svg" alt="">
    <span class="title-unique">Lorem ipsum dolor</span>
    <span class="text-unique">Morbi diam viverra mattis sociis magna, habitasse penatibus non lectus</span>
    </div>
-   <div class="container-unique">
+   <div class="container-unique" style="animation-delay: 0.5s;">
    <img class="unique-img" src="https://gryc24.pl/res/files/1-lp-lockers.svg" alt="">
    <span class="title-unique">Lorem ipsum dolor</span>
    <span class="text-unique">Morbi diam viverra mattis sociis magna, habitasse penatibus non lectus</span>
    </div>
-   <div class="container-unique">
+   <div class="container-unique" style="animation-delay: 0.6s;">
    <img class="unique-img" src="https://gryc24.pl/res/files/2-lp-lockers.svg" alt="">
    <span class="title-unique">Lorem ipsum dolor</span>
    <span class="text-unique">Morbi diam viverra mattis sociis magna, habitasse penatibus non lectus</span>
   </div>
-  </div>	
+  </div>  	
 </section> 
 <div class="opinion-section" data-aos="fade-left">
     <div class="container-opinion-section">
