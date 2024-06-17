@@ -884,39 +884,84 @@ background: rgba(255, 255, 255, 0.5);
             transform: scale(1.05) !important; 
         }
         .stats {
-            background: #1d3557 !important; 
-            color: #fff !important; 
-            display: flex !important; 
-            justify-content: space-around !important; 
-            padding: 40px 20px !important; 
-            text-align: center !important; 
-            margin: 20px 0 !important; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important; 
-            border-radius: 10px !important; 
-        }
-            .stats h2 {
-            font-size: 1.2em !important;
-            justify-content: center !important;
-            animation: fadeInDown 1s ease-out !important;
-            color: #fff !important;
-        }
-        .stats-item {
-            margin: 20px !important; 
-            transition: transform 0.3s !important; 
-        }
-        .stats-item h3 {
-            font-size: 3em !important; 
-            color: #fff !important; 
-            margin-bottom: 10px !important; 
-        }
-.stats-item h2 {
-            font-size: 3em !important; 
-            color: #fff !important; 
-            margin-bottom: 10px !important; 
-        }
-        .stats-item p {
-            color: #fff !important; 
-        }
+    background: #1d3557 !important; 
+    color: #fff !important; 
+    display: flex !important; 
+    justify-content: space-around !important; 
+    padding: 40px 20px !important; 
+    text-align: center !important; 
+    margin: 20px 0 !important; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important; 
+    border-radius: 10px !important; 
+    position: relative;
+}
+.stats h2 {
+    font-size: 1.2em !important;
+    justify-content: center !important;
+    animation: fadeInDown 1s ease-out !important;
+    color: #fff !important;
+}
+.stats-item {
+    margin: 20px !important; 
+    transition: transform 0.3s !important; 
+}
+.stats-item h3 {
+    font-size: 3em !important; 
+    color: #fff !important; 
+    margin-bottom: 10px !important; 
+}
+.stats-item p {
+    color: #fff !important; 
+}
+.faq-label {
+    position: absolute;
+    top: 50%;
+    left: -50px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: background-color 0.3s;
+}
+.faq-label:hover {
+    background-color: darkred;
+}
+.faq {
+    background: #f1faee;
+    color: #1d3557;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+}
+.faq.expanded {
+    max-height: 1000px; /* Adjust as needed to fit the content */
+    padding: 20px;
+}
+.faq h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+.faq-item {
+    margin-bottom: 10px;
+}
+.faq-answer {
+    display: none;
+}
+.faq-question {
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.faq-question:hover {
+    color: #457b9d;
+}
+.faq-item.active .faq-answer {
+    display: block;
+}
 	.bg-light {
     background: rgba(255, 255, 255, 0.5) !important;
     backdrop-filter: blur(10px) !important;
@@ -1877,7 +1922,7 @@ padding: 10px;
     </div>
 </div>
  
-    <section id="stats" class="stats">
+     <section id="stats" class="stats">
         <h2>Gryc w liczbach</h2>
         <div class="stats-item">
             <h3 data-target="23">0</h3>
@@ -1891,7 +1936,25 @@ padding: 10px;
             <h3 data-target="275">0</h3>
             <p>Zrealizowanych projektów</p>
         </div>
+        <div class="faq-label" id="faqLabel">F.A.Q</div>
     </section>
+    
+    <section id="faq" class="faq">
+        <h2>Najczęściej zadawane pytania</h2>
+        <div class="faq-item">
+            <h3 class="faq-question">Jakie są wasze godziny otwarcia?</h3>
+            <p class="faq-answer">Jesteśmy otwarci od poniedziałku do piątku, od 9:00 do 17:00.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Czy oferujecie wsparcie techniczne?</h3>
+            <p class="faq-answer">Tak, oferujemy wsparcie techniczne dla wszystkich naszych klientów.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Jak mogę się z wami skontaktować?</h3>
+            <p class="faq-answer">Możesz skontaktować się z nami przez e-mail lub telefon.</p>
+        </div>
+    </section>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -2324,5 +2387,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+document.getElementById('faqLabel').addEventListener('click', function() {
+    document.getElementById('faq').classList.toggle('expanded');
+});
+
+document.querySelectorAll('.faq-question').forEach(function(question) {
+    question.addEventListener('click', function() {
+        const faqItem = this.parentElement;
+        faqItem.classList.toggle('active');
+    });
+});	
 </script>
 </html>
