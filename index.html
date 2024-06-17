@@ -2397,8 +2397,14 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(section);
   });
 
-  document.getElementById('faqLabel').addEventListener('click', function() {
-    document.getElementById('faq').classList.toggle('expanded');
+document.getElementById('faqLabel').addEventListener('click', function() {
+    const faqSection = document.getElementById('faq');
+    faqSection.classList.toggle('expanded');
+    if (faqSection.classList.contains('expanded')) {
+        this.style.top = '-70px';
+    } else {
+        this.style.top = '-50px';
+    }
 });
 
 document.querySelectorAll('.faq-question').forEach(function(question) {
