@@ -1968,11 +1968,13 @@ padding: 10px;
         <h1>Kalkulator Oszczędności</h1>
         <div class="locker-calculator">
             <label for="locker-months">Czas korzystania (miesiące):</label>
-            <input type="number" id="locker-months" min="0" value="0">
+            <input type="number" id="locker-months" min="1" value="1">
             <button onclick="calculateLockerSavings()">Oblicz</button>
+            <div id="locker-competition-cost"></div>
+            <div id="locker-my-system-cost"></div>
             <div id="locker-result"></div>
         </div>
-        <div class="locker-image-placeholder src="https://gryc24.pl/res/files/kalkulator.png">
+        <div class="locker-image-placeholder">
             <!-- Miejsce na dużą grafikę przedstawiającą kalkulator -->
         </div>
     </div>
