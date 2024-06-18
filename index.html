@@ -1201,7 +1201,7 @@ img.unique-img {
     background-color: #0056b3;
 }
 
-#locker-result {
+#locker-competition-cost, #locker-my-system-cost, #locker-result {
     font-size: 20px;
     font-weight: bold;
     margin-top: 20px;
@@ -2506,13 +2506,17 @@ function calculateLockerSavings() {
     const monthlyCost = 800;
     const months = document.getElementById('locker-months').value;
 
-    const competitionCost = monthlyCost * months;
+    const competitionTotalCost = monthlyCost * months;
+    const mySystemMonthlyCost = lockersCost / months;
 
-    if (competitionCost >= lockersCost) {
-        const savingsPercentage = ((competitionCost - lockersCost) / competitionCost) * 100;
-        document.getElementById('locker-result').innerText = `Po ${months} miesiącach oszczędzasz ${savingsPercentage.toFixed(2)}% wybierając nasz system.`;
+    document.getElementById('locker-competition-cost').innerText = `Koszt systemu konkurencji: ${competitionTotalCost} PLN`;
+    document.getElementById('locker-my-system-cost').innerText = `Koszt systemu Lockers miesięcznie: ${mySystemMonthlyCost.toFixed(2)} PLN`;
+
+    if (mySystemMonthlyCost < monthlyCost) {
+        const savings = (monthlyCost - mySystemMonthlyCost) * months;
+        document.getElementById('locker-result').innerText = `Zaoszczędzasz ${savings.toFixed(2)} PLN po ${months} miesiącach wybierając nasz system.`;
     } else {
-        document.getElementById('locker-result').innerText = `Po ${months} miesiącach koszt systemu konkurencyjnego wynosi ${competitionCost} PLN.`;
+        document.getElementById('locker-result').innerText = '';
     }
 }
 </script>
