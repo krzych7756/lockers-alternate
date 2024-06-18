@@ -1151,6 +1151,47 @@ img.unique-img {
   opacity: 1;
   visibility: visible;
 }
+  .calculator-container {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .calculator-container input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .calculator-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        .calculator-container button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        @media (max-width: 800px) {
+            .calculator-container {
+                width: 90%;
+            }
+        }
 @media only screen and (max-width: 800px) {
     body {
         max-width: 100vw !important;
@@ -1915,6 +1956,12 @@ padding: 10px;
                 </div>
             </div>
         </div>
+	<div class="calculator-container">
+    <h2>Kalkulator Oszczędności</h2>
+    <input type="number" id="months" placeholder="Liczba miesięcy" min="1">
+    <button onclick="calculateSavings()">Oblicz</button>
+    <div class="result" id="result"></div>
+</div>
         <div class="creator">
             <div class="quote">Dążę do tego, aby zarządzanie dostępem stało się normą, a nie luksusem.</div>
             <div class="creator-bottom">
@@ -2425,5 +2472,24 @@ document.querySelectorAll('.faq-question').forEach(function(question) {
         faqItem.classList.toggle('active');
     });
 });
+ const oneTimeCost = 20000; // Jednorazowy koszt systemu Lockers
+    const monthlySubscriptionCost = 800; // Miesięczna opłata za konkurencyjny system
+
+    function calculateSavings() {
+        const months = document.getElementById('months').value;
+        if (months < 1) {
+            alert("Proszę podać prawidłową liczbę miesięcy.");
+            return;
+        }
+
+        const competitiveCost = monthlySubscriptionCost * months;
+        let savingsPercentage = 100 - ((competitiveCost / oneTimeCost) * 100);
+        
+        if (savingsPercentage < 0) {
+            savingsPercentage = 0; // Nie można mieć ujemnych oszczędności
+        }
+
+        document.getElementById('result').innerHTML = `Oszczędności: ${savingsPercentage.toFixed(2)}%`;
+    }
 </script>
 </html>
