@@ -1154,41 +1154,45 @@ img.unique-img {
 
 .locker-container-wrapper {
     display: flex;
-    align-items: flex-start; /* Dopasowanie górnych krawędzi */
+    align-items: flex-start;
     justify-content: center;
+    padding: 20px; /* Dodanie przestrzeni wokół kontenera */
 }
 
 .locker-calculator-container {
-    background: rgba(255, 255, 255, 0.75);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 20px;
+    background: rgba(25, 46, 76, 0.85); /* Zmiana koloru tła na ciemniejszy z przezroczystością */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Większy cień dla głębi */
+    border-radius: 15px; /* Zwiększenie zaokrąglenia narożników */
+    padding: 30px; /* Zwiększenie wewnętrznego marginesu */
     text-align: center;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px); /* Zwiększenie efektu rozmycia */
     max-width: 500px;
     width: 90%;
     margin-top: 6% !important;
+    color: #fff; /* Biały tekst dla lepszej czytelności na ciemnym tle */
 }
 
 .locker-image-placeholder {
     height: 500px;
     width: 500px;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-left: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Dodanie cienia */
 }
 
 .locker-image-placeholder img {
     max-width: 100%;
     max-height: 100%;
-    border-radius: 10px;
+    border-radius: 15px; /* Dopasowanie zaokrąglenia */
 }
 
 .locker-calculator-container h1 {
-    font-size: 24px;
+    font-size: 28px; /* Większa czcionka dla nagłówka */
     margin-bottom: 20px;
+    color: #e63946; /* Czerwony kolor dla wyróżnienia nagłówka */
 }
 
 .locker-calculator {
@@ -1202,27 +1206,30 @@ img.unique-img {
 }
 
 .locker-calculator input {
-    padding: 10px;
+    padding: 12px; /* Większe wewnętrzne marginesy */
     font-size: 16px;
-    width: calc(100% - 22px);
+    width: calc(100% - 24px); /* Dostosowanie szerokości do nowego paddingu */
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #e63946; /* Czerwony obramowanie */
     border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9); /* Delikatne tło dla pola tekstowego */
+    color: #192e4c; /* Ciemny tekst */
 }
 
 .locker-calculator button {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 12px 24px; /* Większe przyciski */
+    font-size: 18px; /* Większy tekst */
     border: none;
     border-radius: 5px;
-    background-color: #192e4c;
+    background-color: #e63946;
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .locker-calculator button:hover {
-    background-color: #e63946;
+    background-color: #192e4c; /* Odwrotny efekt przy najechaniu */
+    transform: scale(1.05); /* Lekka animacja powiększenia */
 }
 
 #locker-competition-cost, #locker-my-system-cost, #locker-result {
