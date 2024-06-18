@@ -1156,19 +1156,18 @@ img.unique-img {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 20px;
 }
 
 .locker-calculator-container {
-    background: #192e4c; /* Jednolity, ciemny kolor tła */
+    background: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
-    padding: 30px;
+    padding: 25px;
     text-align: center;
-    color: #fff; /* Biały tekst dla kontrastu */
     max-width: 500px;
     width: 90%;
     margin-top: 6% !important;
+    border: 2px solid #192e4c;
 }
 
 .locker-image-placeholder {
@@ -1179,7 +1178,6 @@ img.unique-img {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .locker-image-placeholder img {
@@ -1189,9 +1187,9 @@ img.unique-img {
 }
 
 .locker-calculator-container h1 {
-    font-size: 24px;
+    font-size: 26px;
+    color: #192e4c;
     margin-bottom: 20px;
-    color: #e63946; /* Czerwony nagłówek dla wyróżnienia */
 }
 
 .locker-calculator {
@@ -1202,7 +1200,7 @@ img.unique-img {
     font-size: 18px;
     display: block;
     margin-bottom: 10px;
-    color: #fff; /* Biały tekst */
+    color: #192e4c;
 }
 
 .locker-calculator input {
@@ -1210,17 +1208,17 @@ img.unique-img {
     font-size: 16px;
     width: calc(100% - 24px);
     margin-bottom: 20px;
-    border: 2px solid #e63946; /* Czerwone obramowanie */
-    border-radius: 10px;
-    background-color: #fff; /* Jasne tło dla pola tekstowego */
-    color: #192e4c; /* Ciemny tekst */
+    border: 1px solid #192e4c;
+    border-radius: 5px;
+    background-color: #f0f4f8;
+    color: #192e4c;
 }
 
 .locker-calculator button {
-    padding: 12px 24px;
-    font-size: 18px;
+    padding: 12px 25px;
+    font-size: 16px;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #e63946;
     color: white;
     cursor: pointer;
@@ -1228,7 +1226,13 @@ img.unique-img {
 }
 
 .locker-calculator button:hover {
-    background-color: #192e4c; /* Zmiana koloru tła przy najechaniu */
+    background-color: #c53039;
+}
+
+.locker-result {
+    font-size: 20px;
+    color: #e63946;
+    margin-top: 20px;
 }
 
 #locker-competition-cost, #locker-my-system-cost, #locker-result {
