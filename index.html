@@ -1151,6 +1151,11 @@ img.unique-img {
   opacity: 1;
   visibility: visible;
 }
+
+.locker-container-wrapper {
+    display: flex;
+    align-items: center;
+}
 .locker-calculator-container {
     background: rgba(255, 255, 255, 0.75);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -1968,6 +1973,7 @@ padding: 10px;
 
  <div class="locker-calculator-container">
         <h1>Kalkulator Oszczędności</h1>
+	  <div class="locker-container-wrapper">
         <div class="locker-calculator">
             <label for="locker-months">Czas korzystania (miesiące):</label>
             <input type="number" id="locker-months" min="1" value="1">
@@ -1982,6 +1988,7 @@ padding: 10px;
     <div class="locker-image-placeholder">
         <img src="https://gryc24.pl/res/files/kalkulator.png">
     </div>
+ </div>
 	    
 
 <div class="opinion-section" data-aos="fade-left">
