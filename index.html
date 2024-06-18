@@ -1160,21 +1160,15 @@ img.unique-img {
 }
 
 .locker-calculator-container {
-    background: linear-gradient(135deg, #192e4c, #e63946); /* Gradientowe tło dla nowoczesnego wyglądu */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background: #192e4c; /* Jednolity, ciemny kolor tła */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     padding: 30px;
     text-align: center;
-    color: #fff; /* Biały tekst */
+    color: #fff; /* Biały tekst dla kontrastu */
     max-width: 500px;
     width: 90%;
     margin-top: 6% !important;
-    transition: transform 0.3s, box-shadow 0.3s; /* Animacja przy najechaniu */
-}
-
-.locker-calculator-container:hover {
-    transform: translateY(-10px); /* Lekki ruch do góry przy najechaniu */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Większy cień przy najechaniu */
 }
 
 .locker-image-placeholder {
@@ -1195,12 +1189,9 @@ img.unique-img {
 }
 
 .locker-calculator-container h1 {
-    font-size: 28px;
+    font-size: 24px;
     margin-bottom: 20px;
-    color: #fff; /* Biały nagłówek */
-    background: rgba(0, 0, 0, 0.2); /* Półprzezroczyste tło dla nagłówka */
-    padding: 10px;
-    border-radius: 10px;
+    color: #e63946; /* Czerwony nagłówek dla wyróżnienia */
 }
 
 .locker-calculator {
@@ -1220,15 +1211,9 @@ img.unique-img {
     width: calc(100% - 24px);
     margin-bottom: 20px;
     border: 2px solid #e63946; /* Czerwone obramowanie */
-    border-radius: 10px; /* Większe zaokrąglenie */
-    background-color: rgba(255, 255, 255, 0.9); /* Jasne tło dla pola tekstowego */
+    border-radius: 10px;
+    background-color: #fff; /* Jasne tło dla pola tekstowego */
     color: #192e4c; /* Ciemny tekst */
-    transition: border-color 0.3s, box-shadow 0.3s; /* Animacja przy fokusu */
-}
-
-.locker-calculator input:focus {
-    border-color: #192e4c; /* Zmiana koloru obramowania przy fokusu */
-    box-shadow: 0 0 10px rgba(25, 46, 76, 0.5); /* Cień przy fokusu */
 }
 
 .locker-calculator button {
@@ -1239,13 +1224,11 @@ img.unique-img {
     background-color: #e63946;
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Animacje przyciskiem */
+    transition: background-color 0.3s;
 }
 
 .locker-calculator button:hover {
-    background-color: #192e4c;
-    transform: scale(1.05); /* Powiększenie przy najechaniu */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień przy najechaniu */
+    background-color: #192e4c; /* Zmiana koloru tła przy najechaniu */
 }
 
 #locker-competition-cost, #locker-my-system-cost, #locker-result {
