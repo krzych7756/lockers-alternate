@@ -1162,6 +1162,14 @@ img.unique-img {
     width: 90%;
 }
 
+.locker-image-placeholder {
+    height: 500px;
+    width: 500px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
 .locker-calculator-container h1 {
     font-size: 24px;
     margin-bottom: 20px;
@@ -1205,12 +1213,6 @@ img.unique-img {
     font-size: 20px;
     font-weight: bold;
     margin-top: 20px;
-}
-
-.locker-image-placeholder {
-    height: 200px;
-    background-color: #e0e0e0;
-    border-radius: 10px;
 }
 @media only screen and (max-width: 800px) {
     body {
@@ -1969,14 +1971,16 @@ padding: 10px;
         <div class="locker-calculator">
             <label for="locker-months">Czas korzystania (miesiące):</label>
             <input type="number" id="locker-months" min="1" value="1">
+            <label for="locker-competition-fee">Miesięczny abonament konkurencji (PLN):</label>
+            <input type="number" id="locker-competition-fee" min="1" value="800">
             <button onclick="calculateLockerSavings()">Oblicz</button>
             <div id="locker-competition-cost"></div>
             <div id="locker-my-system-cost"></div>
             <div id="locker-result"></div>
         </div>
-        <div class="locker-image-placeholder">
-            <!-- Miejsce na dużą grafikę przedstawiającą kalkulator -->
-        </div>
+    </div>
+    <div class="locker-image-placeholder">
+        <!-- Miejsce na dużą grafikę przedstawiającą kalkulator -->
     </div>
 	    
 
@@ -2505,17 +2509,17 @@ document.querySelectorAll('.faq-question').forEach(function(question) {
 });
 function calculateLockerSavings() {
     const lockersCost = 20000;
-    const monthlyCost = 800;
     const months = document.getElementById('locker-months').value;
+    const competitionFee = document.getElementById('locker-competition-fee').value;
 
-    const competitionTotalCost = monthlyCost * months;
+    const competitionTotalCost = competitionFee * months;
     const mySystemMonthlyCost = lockersCost / months;
 
     document.getElementById('locker-competition-cost').innerText = `Koszt systemu konkurencji: ${competitionTotalCost} PLN`;
     document.getElementById('locker-my-system-cost').innerText = `Koszt systemu Lockers miesięcznie: ${mySystemMonthlyCost.toFixed(2)} PLN`;
 
-    if (mySystemMonthlyCost < monthlyCost) {
-        const savings = (monthlyCost - mySystemMonthlyCost) * months;
+    if (mySystemMonthlyCost < competitionFee) {
+        const savings = (competitionFee - mySystemMonthlyCost) * months;
         document.getElementById('locker-result').innerText = `Zaoszczędzasz ${savings.toFixed(2)} PLN po ${months} miesiącach wybierając nasz system.`;
     } else {
         document.getElementById('locker-result').innerText = '';
