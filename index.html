@@ -1156,20 +1156,25 @@ img.unique-img {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 20px; /* Dodanie przestrzeni wokół kontenera */
+    padding: 20px;
 }
 
 .locker-calculator-container {
-    background: rgba(25, 46, 76, 0.85); /* Zmiana koloru tła na ciemniejszy z przezroczystością */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Większy cień dla głębi */
-    border-radius: 15px; /* Zwiększenie zaokrąglenia narożników */
-    padding: 30px; /* Zwiększenie wewnętrznego marginesu */
+    background: linear-gradient(135deg, #192e4c, #e63946); /* Gradientowe tło dla nowoczesnego wyglądu */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 30px;
     text-align: center;
-    backdrop-filter: blur(15px); /* Zwiększenie efektu rozmycia */
+    color: #fff; /* Biały tekst */
     max-width: 500px;
     width: 90%;
     margin-top: 6% !important;
-    color: #fff; /* Biały tekst dla lepszej czytelności na ciemnym tle */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animacja przy najechaniu */
+}
+
+.locker-calculator-container:hover {
+    transform: translateY(-10px); /* Lekki ruch do góry przy najechaniu */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Większy cień przy najechaniu */
 }
 
 .locker-image-placeholder {
@@ -1180,19 +1185,22 @@ img.unique-img {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Dodanie cienia */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .locker-image-placeholder img {
     max-width: 100%;
     max-height: 100%;
-    border-radius: 15px; /* Dopasowanie zaokrąglenia */
+    border-radius: 15px;
 }
 
 .locker-calculator-container h1 {
-    font-size: 28px; /* Większa czcionka dla nagłówka */
+    font-size: 28px;
     margin-bottom: 20px;
-    color: #e63946; /* Czerwony kolor dla wyróżnienia nagłówka */
+    color: #fff; /* Biały nagłówek */
+    background: rgba(0, 0, 0, 0.2); /* Półprzezroczyste tło dla nagłówka */
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .locker-calculator {
@@ -1203,33 +1211,41 @@ img.unique-img {
     font-size: 18px;
     display: block;
     margin-bottom: 10px;
+    color: #fff; /* Biały tekst */
 }
 
 .locker-calculator input {
-    padding: 12px; /* Większe wewnętrzne marginesy */
+    padding: 12px;
     font-size: 16px;
-    width: calc(100% - 24px); /* Dostosowanie szerokości do nowego paddingu */
+    width: calc(100% - 24px);
     margin-bottom: 20px;
-    border: 1px solid #e63946; /* Czerwony obramowanie */
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.9); /* Delikatne tło dla pola tekstowego */
+    border: 2px solid #e63946; /* Czerwone obramowanie */
+    border-radius: 10px; /* Większe zaokrąglenie */
+    background-color: rgba(255, 255, 255, 0.9); /* Jasne tło dla pola tekstowego */
     color: #192e4c; /* Ciemny tekst */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Animacja przy fokusu */
+}
+
+.locker-calculator input:focus {
+    border-color: #192e4c; /* Zmiana koloru obramowania przy fokusu */
+    box-shadow: 0 0 10px rgba(25, 46, 76, 0.5); /* Cień przy fokusu */
 }
 
 .locker-calculator button {
-    padding: 12px 24px; /* Większe przyciski */
-    font-size: 18px; /* Większy tekst */
+    padding: 12px 24px;
+    font-size: 18px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #e63946;
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Animacje przyciskiem */
 }
 
 .locker-calculator button:hover {
-    background-color: #192e4c; /* Odwrotny efekt przy najechaniu */
-    transform: scale(1.05); /* Lekka animacja powiększenia */
+    background-color: #192e4c;
+    transform: scale(1.05); /* Powiększenie przy najechaniu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień przy najechaniu */
 }
 
 #locker-competition-cost, #locker-my-system-cost, #locker-result {
