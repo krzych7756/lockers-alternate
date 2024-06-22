@@ -288,27 +288,32 @@ section.card-container {
 }
 
 .toggle-animation:hover {
-  background-color: #d62828;
+  background-color: #e63946;
   transform: translateY(-5px);
 }
 
 .main-wrapper {
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: #fafafa;
-    padding: 20px;
+      background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+  transform: translateY(20px);
+  margin: 40px auto;
+  width: calc(100% - 40px);
+  max-width: 1200px;
 }
 .main-wrapper h1 {
     font-size: 3em;
     margin: 25px;
+    color: #192e4c;
 }
 .main-wrapper p {
     text-align: center;
     margin-bottom: 20px;
-    color: #6c757d;
+    color: #192e4c;
 }
 .core-values-container {
     display: flex;
