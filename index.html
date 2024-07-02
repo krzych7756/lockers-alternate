@@ -2688,9 +2688,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const images = document.querySelectorAll('.Galeria-lockers-image-container');
 
     images.forEach((image, index) => {
-        setTimeout(() => {
-            image.style.animationDelay = `${Math.random() * 5}s`;
-        }, 0);
+        const randomDelay = Math.random() * 5;
+        const randomPosition = Math.random() * 100;
+
+        image.style.animationDelay = `${randomDelay}s`;
+        image.style.left = `${randomPosition}vw`;
+        image.style.top = `-${300 + index * 60}px`; // Różne wartości top dla każdego obrazka
     });
 });
 </script>
