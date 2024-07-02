@@ -213,20 +213,22 @@
 
 @keyframes fall {
     0% {
-        top: -300px;
+        transform: translateY(-100%);
         opacity: 1;
-        filter: blur(0);
-    }
-    90% {
-        top: 100vh;
-        opacity: 1;
-        filter: blur(0);
     }
     100% {
-        top: 100vh;
+        transform: translateY(100vh);
         opacity: 0;
-        filter: blur(10px);
     }
+}
+
+.Galeria-lockers-image-column img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 	
 	
@@ -2690,12 +2692,14 @@ document.addEventListener("DOMContentLoaded", () => {
     columns.forEach((column, columnIndex) => {
         const images = column.children;
         const baseDelay = columnIndex; // base delay incremented by columnIndex
-        const additionalDelay = columnIndex * 1.3; // additional delay to add some randomness
+        const additionalDelay = columnIndex * 0.3; // additional delay to add some randomness
+        const animationDuration = 10 + columnIndex * 2; // Different animation duration for each column
 
         Array.from(images).forEach((image, imgIndex) => {
             // Calculate the delay for each image
             const delay = baseDelay + additionalDelay;
             image.style.animationDelay = `${delay}s`;
+            image.style.animationDuration = `${animationDuration}s`;
 
             // Set initial position for each image
             const topPosition = -(300 + imgIndex * 60);
