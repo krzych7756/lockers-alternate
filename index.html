@@ -204,6 +204,93 @@ background: rgba(230, 57, 70, 0.9);
     margin-bottom: 20px;
 }
 
+/* Podstawowy styl dla sekcji */
+.Galeria-lockers-section {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    background: black;
+    color: white;
+}
+
+/* Styl dla nagłówka */
+.Galeria-lockers-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 30;
+    width: 100%;
+    background: black;
+    padding: 20px;
+    text-align: left;
+}
+
+.Galeria-lockers-header h1 {
+    font-size: 2rem;
+}
+
+.Galeria-lockers-header h2 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.Galeria-lockers-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #00ff00;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.Galeria-lockers-button:hover {
+    background-color: #00cc00;
+}
+
+/* Styl dla obrazków */
+.Galeria-lockers-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.Galeria-lockers-image-container {
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fall 5s infinite;
+    opacity: 0;
+}
+
+.Galeria-lockers-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.Galeria-lockers-image-container img:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fall {
+    0% {
+        top: -300px;
+        opacity: 1;
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+    }
+}
+	
 /* Testimoniale */
 .snip1533 {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
@@ -1777,6 +1864,22 @@ padding: 10px;
         </div>
     </div>
 </div>
+<section class="Galeria-lockers-section">
+        <div class="Galeria-lockers-header">
+            <h1>Photoshoots<br>Made <span class="main-text">Simple.</span></h1>
+            <h2>Create studio-quality pictures with artificial intelligence.</h2>
+            <a target="_blank" rel="noopener noreferrer" href="gryc24.pl">
+                <button type="button" class="Galeria-lockers-button">Realizacje</button>
+            </a>
+        </div>
+        <div class="Galeria-lockers-images">
+            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_1.png?updatedAt=1711181535020" alt="Surreal 1"></div>
+            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_2.jpg?updatedAt=1711181533937" alt="Surreal 2"></div>
+            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_3.jpg?updatedAt=1711181533653" alt="Surreal 3"></div>
+            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_4.jpg?updatedAt=1711181533648" alt="Surreal 4"></div>
+        </div>
+    </section>
+	
 	
 <!-- Adding margin between sections -->
 <section class="bg-light section-padding" data-aos="fade-right">
@@ -2585,5 +2688,14 @@ function calculateLockerSavings() {
         document.getElementById('locker-result').innerText = '';
     }
 }
+document.addEventListener("DOMContentLoaded", () => {
+    const images = document.querySelectorAll('.Galeria-lockers-image-container');
+
+    images.forEach((image, index) => {
+        setTimeout(() => {
+            image.style.animationDelay = `${index * 1.5}s`;
+        }, 0);
+    });
+});
 </script>
 </html>
