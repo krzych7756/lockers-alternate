@@ -2690,7 +2690,7 @@ document.addEventListener("DOMContentLoaded", () => {
     columns.forEach((column, columnIndex) => {
         const images = column.children;
         const baseDelay = columnIndex; // base delay incremented by columnIndex
-        const additionalDelay = columnIndex * 0.3; // additional delay to add some randomness
+        const additionalDelay = columnIndex * 1.3; // additional delay to add some randomness
 
         Array.from(images).forEach((image, imgIndex) => {
             // Calculate the delay for each image
