@@ -2701,8 +2701,8 @@ document.addEventListener("DOMContentLoaded", () => {
             image.style.animationDelay = `${delay}s`;
             image.style.animationDuration = `${animationDuration}s`;
 
-            // Set initial position for each image
-            const topPosition = -(300 + imgIndex * 60);
+            // Set initial position for each image, spaced out by their height
+            const topPosition = -(100 + imgIndex * 200); // Adjust spacing as needed
             image.style.top = `${topPosition}px`;
         });
     });
