@@ -2693,16 +2693,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const images = column.children;
         const baseDelay = columnIndex; // base delay incremented by columnIndex
         const additionalDelay = columnIndex * 0.3; // additional delay to add some randomness
-        const animationDuration = 10 + columnIndex * 6; // Different animation duration for each column
+        const animationDuration = 10 + columnIndex * 2; // Different animation duration for each column
 
         Array.from(images).forEach((image, imgIndex) => {
             // Calculate the delay for each image
-            const delay = baseDelay + additionalDelay;
+            const delay = baseDelay + additionalDelay + imgIndex * 2; // Increment delay for each image
             image.style.animationDelay = `${delay}s`;
             image.style.animationDuration = `${animationDuration}s`;
 
             // Set initial position for each image, spaced out by their height
-            const topPosition = -(10 + imgIndex * 200); // Adjust spacing as needed
+            const topPosition = imgIndex * 200; // Adjust spacing as needed
             image.style.top = `${topPosition}px`;
         });
     });
