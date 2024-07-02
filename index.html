@@ -2687,14 +2687,17 @@ function calculateLockerSavings() {
 document.addEventListener("DOMContentLoaded", () => {
     const columns = document.querySelectorAll('.Galeria-lockers-image-column');
 
-    columns.forEach((column, index) => {
+    columns.forEach((column, columnIndex) => {
         const images = column.children;
-        Array.from(images).forEach((image, imgIndex) => {
-            // Set random delay for each column
-            const randomDelay = Math.random() * 5;
-            image.style.animationDelay = `${randomDelay}s`;
+        const baseDelay = columnIndex; // base delay incremented by columnIndex
+        const additionalDelay = columnIndex * 0.3; // additional delay to add some randomness
 
-            // Set random top value for each image in the column
+        Array.from(images).forEach((image, imgIndex) => {
+            // Calculate the delay for each image
+            const delay = baseDelay + additionalDelay;
+            image.style.animationDelay = `${delay}s`;
+
+            // Set initial position for each image
             const topPosition = -(300 + imgIndex * 60);
             image.style.top = `${topPosition}px`;
         });
