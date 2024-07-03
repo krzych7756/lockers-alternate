@@ -2725,8 +2725,8 @@ function calculateLockerSavings() {
 }
 document.addEventListener("DOMContentLoaded", () => {
     const columns = document.querySelectorAll('.Galeria-lockers-image-column');
-    const animationDuration = 10; // Fixed animation duration for smooth effect
-    const overlapFactor = 0.5; // 50% overlap to start new iteration
+    const animationDuration = 10; // Fixed animation duration in seconds
+    const overlapFactor = 0.2; // 50% overlap to start new iteration
 
     columns.forEach((column, columnIndex) => {
         const images = column.children;
@@ -2734,7 +2734,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         Array.from(images).forEach((image, imgIndex) => {
             // Calculate delay for each image
-            const delay = (imgIndex * animationDuration * (1 - overlapFactor)) / numImages;
+            const delay = imgIndex * (animationDuration / numImages) * overlapFactor;
             image.style.animationDelay = `-${delay}s`;
             image.style.animationDuration = `${animationDuration}s`;
 
