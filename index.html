@@ -2692,9 +2692,9 @@ document.addEventListener("DOMContentLoaded", () => {
     columns.forEach((column, columnIndex) => {
         const images = column.children;
         const baseDelay = columnIndex; 
-        const additionalDelay = columnIndex * 0.5; 
-        const animationDuration = 10 + columnIndex * 2; 
-        const animationSpeed = 1 + columnIndex * 0.5;
+        const additionalDelay = columnIndex * 4.5; 
+        const animationDuration = 40 + columnIndex * 7; 
+        const animationSpeed = 1 + columnIndex * 3.5;
 
         Array.from(images).forEach((image, imgIndex) => {
             const delay = baseDelay + additionalDelay + imgIndex * 2;
