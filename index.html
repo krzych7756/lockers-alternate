@@ -165,7 +165,7 @@
     }
 }
 
-/* Podstawowy styl dla sekcji */
+/* Styl dla głównego kontenera */
 .Galeria-lockers-section {
     overflow: hidden;
     position: relative;
@@ -175,7 +175,7 @@
     padding: 35px !important;
     width: 1200px !important;
     height: 100vh; 
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px !important;
+    box-shadow: none !important; /* Usuwamy cień z głównego kontenera */
     transition: transform 0.3s ease 0s, opacity 0.3s ease 0s !important;
     opacity: 1 !important;
     transform: translateY(20px) !important;
@@ -191,7 +191,7 @@
     font-weight: bold !important;
     color: rgb(255, 255, 255) !important;
     z-index: 10 !important;
-    text-shadow: 1px 1px 250px rgba(29, 53, 87, 0.9) !important; /* Poprawiona wartość text-shadow */
+    text-shadow: 0 0 50px rgba(255, 255, 255, 0.9) !important; /* "Śnieżnobiały" cień tekstu */
 }
 
 /* Styl dla obrazków */
@@ -203,6 +203,7 @@
     height: 100%;
     display: flex;
     justify-content: space-around;
+    z-index: 1; /* Obrazy mają niższy z-index, aby były pod tytułem */
 }
 
 .Galeria-lockers-image-column {
