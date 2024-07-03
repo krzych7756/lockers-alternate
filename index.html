@@ -2726,17 +2726,19 @@ function calculateLockerSavings() {
 document.addEventListener("DOMContentLoaded", () => {
     const columns = document.querySelectorAll('.Galeria-lockers-image-column');
     const animationDuration = 10; // Fixed animation duration in seconds
+    const columnDelay = 1.5; // Delay between columns in seconds
 
     columns.forEach((column, columnIndex) => {
         const images = column.children;
         const numImages = images.length;
         const totalHeight = 100; // Total height in percentage
         const imageHeight = totalHeight / numImages; // Height of each image in percentage
+        const startDelay = columnIndex * columnDelay; // Delay based on column index
 
         Array.from(images).forEach((image, imgIndex) => {
             // Calculate delay for each image
-            const delay = imgIndex * (animationDuration / numImages) - (animationDuration / numImages * 0.6);
-            image.style.animationDelay = `${delay}s`;
+            const delay = startDelay + imgIndex * (animationDuration / numImages);
+            image.style.animationDelay = `-${delay}s`;
             image.style.animationDuration = `${animationDuration}s`;
 
             // Set initial position for each image
