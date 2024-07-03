@@ -2725,26 +2725,22 @@ function calculateLockerSavings() {
 }
 document.addEventListener("DOMContentLoaded", () => {
     const columns = document.querySelectorAll('.Galeria-lockers-image-column');
-    const overlapFactor = 0.8; // 40% height before new iteration starts
+    const animationDuration = 10; // Fixed animation duration for smooth effect
+    const overlapFactor = 0.5; // 50% overlap to start new iteration
 
     columns.forEach((column, columnIndex) => {
         const images = column.children;
-        const baseDelay = columnIndex * 2; // base delay incremented by columnIndex
-        const additionalDelay = columnIndex * 0.3; // additional delay to add some randomness
-        const animationDuration = 10 + columnIndex * 2; // Different animation duration for each column
+        const numImages = images.length;
 
         Array.from(images).forEach((image, imgIndex) => {
-            // Calculate the delay for each image
-            const delay = (baseDelay + additionalDelay + imgIndex * 2) * (1 - overlapFactor); // Increment delay for each image
+            // Calculate delay for each image
+            const delay = (imgIndex * animationDuration * (1 - overlapFactor)) / numImages;
             image.style.animationDelay = `-${delay}s`;
             image.style.animationDuration = `${animationDuration}s`;
 
             // Set initial position for each image, spaced out by their height
-            const topPosition = imgIndex * 200; // Adjust spacing as needed
-            image.style.top = `${topPosition}px`;
-
-            // Ensure the image repeats its animation seamlessly
-            image.style.transform = `translateY(${imgIndex * 100}%)`;
+            const topPosition = imgIndex * (100 / numImages); // Adjust spacing as needed
+            image.style.top = `${topPosition}%`;
         });
     });
 });
