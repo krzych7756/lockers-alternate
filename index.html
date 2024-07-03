@@ -189,7 +189,7 @@
     font-size: 72px !important; /* Zwiększam rozmiar tekstu dla intensywniejszego efektu */
     font-weight: bold !important;
     color: rgb(255, 255, 255) !important;
-    z-index: 10 !important;
+    z-index: 50 !important;
     overflow: hidden; /* Ukrywam overflow, aby prostokąty nie wystawały poza kontener */
     background-image: url('https://gryc24.pl/res/files/lockers-lp-galeria4.svg'); /* tło graficzne */
     background-size: cover; /* Dopasuj rozmiar tła do wielkości elementu */
@@ -205,59 +205,9 @@
     background-image: url('https://gryc24.pl/res/files/lockers-lp-galeria4.svg'); /* tło graficzne */
     background-size: cover; /* Dopasuj rozmiar tła do wielkości elementu */
     background-position: center center; /* Pozycja tła na środku */
-    z-index: 1; /* Ustaw z-index na niższy niż tytuł, aby tekst był widoczny nad tłem */
+    z-index: 30; /* Ustaw z-index na niższy niż tytuł, aby tekst był widoczny nad tłem */
 }
 
-/* Dodatkowe style dla poszczególnych prostokątów */
-.Galeria-lockers-title::after:nth-child(2) {
-    width: calc(90% - 20px);
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.Galeria-lockers-title::after:nth-child(3) {
-    width: calc(80% - 20px);
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.Galeria-lockers-title::after:nth-child(4) {
-    width: calc(70% - 20px);
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.Galeria-lockers-title::after:nth-child(5) {
-    width: calc(60% - 20px);
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.Galeria-lockers-title::after:nth-child(6) {
-    width: calc(50% - 20px);
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.Galeria-lockers-title::after:nth-child(7) {
-    width: calc(40% - 20px);
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.Galeria-lockers-title::after:nth-child(8) {
-    width: calc(30% - 20px);
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.Galeria-lockers-title::after:nth-child(9) {
-    width: calc(20% - 20px);
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.Galeria-lockers-title::after:nth-child(10) {
-    width: calc(10% - 20px);
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.Galeria-lockers-title::after:nth-child(11) {
-    width: 0; /* Ostatni prostokąt, nie ma szerokości */
-    background: none;
-}
 /* Styl dla obrazków */
 .Galeria-lockers-images {
     position: absolute;
