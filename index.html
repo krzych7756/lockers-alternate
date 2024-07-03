@@ -246,23 +246,18 @@
     transform: scale(1.05);
 }
 
-/* Efekt przesunięcia i znikania obrazków */
-@keyframes fall {
+@keyframes slide {
     0% {
-        transform: translateY(-100%);
-        opacity: 1;
+        transform: translateY(0);
     }
     100% {
-        transform: translateY(calc(100vh + 200px)); /* Adjust 200px based on image height */
-        opacity: 0;
+        transform: translateY(-100%);
     }
 }
 
-.Galeria-lockers-image-column img {
+.Galeria-lockers-image {
     position: absolute;
-    width: 100%;
-    height: auto;
-    animation-name: fall;
+    animation-name: slide;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
