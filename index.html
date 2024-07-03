@@ -2731,11 +2731,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const baseDelay = columnIndex; // base delay incremented by columnIndex
         const additionalDelay = columnIndex * 0.3; // additional delay to add some randomness
         const animationDuration = 10 + columnIndex * 2; // Different animation duration for each column
+        const overlapPercentage = 0.1; // 10% overlap
 
         Array.from(images).forEach((image, imgIndex) => {
             // Calculate the delay for each image
-            const delay = baseDelay + additionalDelay + imgIndex * 2; // Increment delay for each image
-            image.style.animationDelay = `${delay}s`;
+            const delay = (baseDelay + additionalDelay + imgIndex * 2) * (1 - overlapPercentage); // Increment delay for each image
+            image.style.animationDelay = `-${delay}s`;
             image.style.animationDuration = `${animationDuration}s`;
 
             // Set initial position for each image, spaced out by their height
