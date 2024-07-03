@@ -2688,19 +2688,44 @@ function calculateLockerSavings() {
 }
 document.addEventListener("DOMContentLoaded", () => {
     const columns = document.querySelectorAll('.Galeria-lockers-image-column');
-
+    
     columns.forEach((column, columnIndex) => {
         const images = column.children;
-        const baseDelay = columnIndex; // base delay incremented by columnIndex
-        const animationDuration = 10 + columnIndex * 2; // Different animation duration for each column
-        const animationDelay = columnIndex * 2; // Different delay for each column
+        const baseDelay = columnIndex; 
+        const additionalDelay = columnIndex * 0.5; 
+        const animationDuration = 10 + columnIndex * 2; 
+        const animationSpeed = 1 + columnIndex * 0.5;
 
         Array.from(images).forEach((image, imgIndex) => {
-            // Calculate the delay for each image
-            const delay = baseDelay + imgIndex * 2; // Increment delay for each image
+            const delay = baseDelay + additionalDelay + imgIndex * 2;
             image.style.animationDelay = `${delay}s`;
             image.style.animationDuration = `${animationDuration}s`;
+            image.style.animationTimingFunction = `linear`;
+            
+            const topPosition = imgIndex * 200;
+            image.style.top = `${topPosition}px`;
         });
+
+        let startTime;
+        
+        function animate(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            
+            Array.from(images).forEach((image, imgIndex) => {
+                const delay = (baseDelay + additionalDelay + imgIndex * 2) * 1000;
+                const speed = animationSpeed * 100;
+                const duration = animationDuration * 1000;
+
+                const progress = (elapsed - delay) % duration;
+                const newTop = (progress / duration) * speed;
+                image.style.transform = `translateY(${newTop}px)`;
+            });
+            
+            requestAnimationFrame(animate);
+        }
+        
+        requestAnimationFrame(animate);
     });
 });
 </script>
