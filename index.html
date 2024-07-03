@@ -2725,19 +2725,20 @@ function calculateLockerSavings() {
 }
 document.addEventListener("DOMContentLoaded", () => {
     const columns = document.querySelectorAll('.Galeria-lockers-image-column');
+    const animationDuration = 10; // Stała długość animacji dla każdej kolumny
 
     columns.forEach((column, columnIndex) => {
         const images = column.children;
         const numImages = images.length;
-        const animationDuration = numImages * 1.5; // Proporcjonalna długość animacji dla każdej kolumny
+        const startDelay = columnIndex * 1.5; // Opóźnienie startu dla każdej kolumny
 
         Array.from(images).forEach((image, imgIndex) => {
-            // Calculate delay for each image
-            const delay = columnIndex * 1.5 + imgIndex * (animationDuration / numImages);
+            // Oblicz delay dla każdego obrazka
+            const delay = startDelay + imgIndex * (animationDuration / numImages);
             image.style.animationDelay = `-${delay}s`;
             image.style.animationDuration = `${animationDuration}s`;
 
-            // Set initial position for each image
+            // Ustaw początkową pozycję dla każdego obrazka
             const topPosition = imgIndex * (100 / numImages); // Równomierne rozłożenie obrazów
             image.style.top = `${topPosition}%`;
         });
