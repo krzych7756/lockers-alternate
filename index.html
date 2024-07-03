@@ -165,7 +165,7 @@
     }
 }
 
-/* Podstawowy styl dla sekcji */
+/* Styl dla głównej sekcji */
 .Galeria-lockers-section {
     overflow: hidden;
     position: relative;
@@ -174,69 +174,63 @@
     border-radius: 10px !important;
     padding: 35px !important;
     width: 1200px !important;
-    height: 100vh; 
+    height: 100vh;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px !important;
     transition: transform 0.3s ease 0s, opacity 0.3s ease 0s !important;
     opacity: 1 !important;
     transform: translateY(20px) !important;
     margin: 70px 0px !important;
-}
-
-/* Styl dla obrazków */
-.Galeria-lockers-images {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-.Galeria-lockers-image-column {
+/* Styl dla tekstu */
+.text-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 20px;
+    color: black; /* Dopasuj kolor do swojego stylu */
 }
 
-.Galeria-lockers-image-container {
-    position: relative;
-    width: 200px;
-    height: 300px;
-    animation: fall 10s linear infinite;
+.main-heading {
+    font-family: 'Poppin', sans-serif;
+    font-size: 4rem; /* Dopasuj rozmiar do swojego stylu */
+    color: white;
+    max-width: 600px;
+    margin-left: 35px;
 }
 
-.Galeria-lockers-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-    transition: transform 0.3s ease;
+.main-heading .highlight {
+    font-weight: bold;
 }
 
-.Galeria-lockers-image-container img:hover {
-    transform: scale(1.05);
+.sub-heading {
+    font-family: 'Poppin', sans-serif;
+    font-size: 1.5rem; /* Dopasuj rozmiar do swojego stylu */
+    color: white;
+    margin-left: 35px;
 }
 
-@keyframes fall {
-    0% {
-        transform: translateY(-100%);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(calc(100vh + 200px)); /* Adjust 200px based on image height */
-        opacity: 0;
-    }
+.cta-button {
+    margin-left: 35px;
 }
 
-.Galeria-lockers-image-column img {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    animation-name: fall;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+.cta-button button {
+    background-color: green; /* Dopasuj kolor do swojego stylu */
+    color: black; /* Dopasuj kolor do swojego stylu */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Poppin', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button button:hover {
+    background-color: darkgreen; /* Dopasuj kolor do swojego stylu */
+    color: white;
 }
 	
 	
