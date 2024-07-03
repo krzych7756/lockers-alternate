@@ -2686,7 +2686,7 @@ function calculateLockerSavings() {
         document.getElementById('locker-result').innerText = '';
     }
 }
- document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const columns = document.querySelectorAll('.Galeria-lockers-image-column');
 
     columns.forEach((column, columnIndex) => {
@@ -2704,6 +2704,9 @@ function calculateLockerSavings() {
             // Set initial position for each image, spaced out by their height
             const topPosition = imgIndex * 200; // Adjust spacing as needed
             image.style.top = `${topPosition}px`;
+
+            // Ensure the image repeats its animation seamlessly
+            image.style.transform = `translateY(${imgIndex * 100}%)`;
         });
     });
 });
