@@ -234,20 +234,12 @@
 /* Efekt przesunięcia i znikania obrazków */
 @keyframes fall {
     0% {
-        opacity: 0;
-        transform: translateY(-200px);
-    }
-    10% {
+        transform: translateY(-100%);
         opacity: 1;
-        transform: translateY(0);
-    }
-    90% {
-        opacity: 1;
-        transform: translateY(0);
     }
     100% {
+        transform: translateY(calc(100vh + 200px)); /* Adjust 200px based on image height */
         opacity: 0;
-        transform: translateY(200px);
     }
 }
 
