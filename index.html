@@ -166,78 +166,70 @@
 }
 
 /* Podstawowy styl dla sekcji */
- .Galeria-lockers-section {
-            position: relative;
-            overflow: hidden;
-            height: 100vh;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-        }
-        
-        .Galeria-lockers-images {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: space-around;
-        }
+.Galeria-lockers-section {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+}
 
-        .Galeria-lockers-image-column {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
+/* Styl dla obrazków */
+.Galeria-lockers-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
 
-        .Galeria-lockers-image-container {
-            position: relative;
-            width: 200px;
-            height: 300px;
-        }
+.Galeria-lockers-image-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
 
-        .Galeria-lockers-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 15px;
-            transition: transform 0.3s ease;
-        }
+.Galeria-lockers-image-container {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    animation: fall 10s linear infinite;
+}
 
-        .Galeria-lockers-image-container img:hover {
-            transform: scale(1.05);
-        }
+.Galeria-lockers-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
 
-        @keyframes fall {
-            0% {
-                transform: translateY(-100%);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(calc(100vh + 200px));
-                opacity: 0;
-            }
-        }
+.Galeria-lockers-image-container img:hover {
+    transform: scale(1.05);
+}
 
-        .Galeria-lockers-image-column img {
-            position: absolute;
-            width: 100%;
-            height: auto;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-        }
-        
-        .shadow-overlay {
-            position: absolute;
-            width: 100%;
-            height: 50px; /* Adjust height to create the desired shadow effect */
-            top: 0;
-            left: 0;
-            z-index: 30;
-            background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
-        }
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(calc(100vh + 200px)); /* Adjust 200px based on image height */
+        opacity: 0;
+    }
+}
+
+.Galeria-lockers-image-column img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
 	
 	
 /* Stylowania zbiorcze dla kontenerów */
@@ -1856,36 +1848,28 @@ padding: 10px;
 <body>
     <section class="Galeria-lockers-section">
         <div class="Galeria-lockers-images">
-            <div class="Galeria-lockers-image-column column1">
-                <div class="shadow-overlay"></div>
-                <!-- Images for column 1 -->
+            <div class="Galeria-lockers-image-column">
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_1.png?updatedAt=1711181535020" alt="Surreal 1"></div>
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_2.jpg?updatedAt=1711181533937" alt="Surreal 2"></div>
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_3.jpg?updatedAt=1711181533653" alt="Surreal 3"></div>
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_4.jpg?updatedAt=1711181533648" alt="Surreal 4"></div>
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_1.png?updatedAt=1711181535020" alt="Surreal 1"></div>
             </div>
-            <div class="Galeria-lockers-image-column column2">
-                <div class="shadow-overlay"></div>
-                <!-- Images for column 2 -->
+            <div class="Galeria-lockers-image-column">
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_2.jpg?updatedAt=1711181533937" alt="Surreal 2"></div>
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_3.jpg?updatedAt=1711181533653" alt="Surreal 3"></div>
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_4.jpg?updatedAt=1711181533648" alt="Surreal 4"></div>
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_1.png?updatedAt=1711181535020" alt="Surreal 1"></div>
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_2.jpg?updatedAt=1711181533937" alt="Surreal 2"></div>
             </div>
-            <div class="Galeria-lockers-image-column column3">
-                <div class="shadow-overlay"></div>
-                <!-- Images for column 3 -->
+            <div class="Galeria-lockers-image-column">
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_3.jpg?updatedAt=1711181533653" alt="Surreal 3"></div>
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_4.jpg?updatedAt=1711181533648" alt="Surreal 4"></div>
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_1.png?updatedAt=1711181535020" alt="Surreal 1"></div>
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_2.jpg?updatedAt=1711181533937" alt="Surreal 2"></div>
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_3.jpg?updatedAt=1711181533653" alt="Surreal 3"></div>
             </div>
-            <div class="Galeria-lockers-image-column column4">
-                <div class="shadow-overlay"></div>
-                <!-- Images for column 4 -->
+            <div class="Galeria-lockers-image-column">
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_4.jpg?updatedAt=1711181533648" alt="Surreal 4"></div>
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_1.png?updatedAt=1711181535020" alt="Surreal 1"></div>
                 <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_2.jpg?updatedAt=1711181533937" alt="Surreal 2"></div>
@@ -2703,21 +2687,27 @@ function calculateLockerSavings() {
     }
 }
   document.addEventListener("DOMContentLoaded", () => {
-            const columns = document.querySelectorAll('.Galeria-lockers-image-column');
+    const columns = document.querySelectorAll('.Galeria-lockers-image-column');
 
-            columns.forEach((column, columnIndex) => {
-                const images = column.children;
-                const baseDelay = columnIndex; // base delay incremented by columnIndex
-                const additionalDelay = columnIndex * 0.5; // additional delay to add some randomness
-                const animationDuration = 10 + columnIndex * 2; // Different animation duration for each column
+    columns.forEach((column, columnIndex) => {
+        const images = column.children;
+        const baseDelay = columnIndex; // base delay incremented by columnIndex
+        const additionalDelay = columnIndex * 0.5; // additional delay to add some randomness
+        const animationDuration = 10 + columnIndex * 2; // Different animation duration for each column
+        const animationSpeed = 5 + columnIndex * 2; // Different speed for each column
 
-                Array.from(images).forEach((image, imgIndex) => {
-                    // Calculate the delay for each image
-                    const delay = baseDelay + additionalDelay + imgIndex * 2; // Increment delay for each image
-                    image.style.animationDelay = `${delay}s`;
-                    image.style.animationDuration = `${animationDuration}s`;
-                });
-            });
+        Array.from(images).forEach((image, imgIndex) => {
+            // Calculate the delay for each image
+            const delay = baseDelay + additionalDelay + imgIndex * 2; // Increment delay for each image
+            image.style.animationDelay = ${delay}s;
+            image.style.animationDuration = ${animationDuration}s;
+            image.style.animationTimingFunction = linear ${animationSpeed}s;
+
+            // Set initial position for each image, spaced out by their height
+            const topPosition = imgIndex * 200; // Adjust spacing as needed
+            image.style.top = ${topPosition}px;
         });
+    });
+});
 </script>
 </html>
