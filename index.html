@@ -258,6 +258,15 @@
     }
 }
 
+.Galeria-lockers-image-container img {
+    animation: fall 10s infinite;
+    animation-delay: 0s;
+}
+
+.Galeria-lockers-image-container img:nth-child(2) {
+    animation-delay: 6s; /* Start at 60% of the first animation's duration (5s * 0.6 = 3s) */
+}
+
 .Galeria-lockers-image-column img {
     position: absolute;
     width: 100%;
