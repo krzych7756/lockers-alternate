@@ -246,28 +246,28 @@
     transform: scale(1.05);
 }
 
-/* Efekt przesunięcia i znikania obrazków */
+.Galeria-lockers-image-column {
+  position: relative;
+  overflow: hidden;
+  height: 100%; /* Dostosuj do wysokości kontenera */
+}
+
+.Galeria-lockers-image-column .image {
+  position: absolute;
+  width: 100%; /* Dostosuj do szerokości obrazka */
+  animation: fall linear infinite;
+}
+
 @keyframes fall {
-    0% {
-        transform: translateY(-100%);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(calc(100vh + 200px)); /* Adjust 200px based on image height */
-        opacity: 0.8;
-    }
-}
-
-.Galeria-lockers-image-container img {
-    animation: fall 15s infinite linear;
-}
-
-.Galeria-lockers-image-container img:nth-child(2) {
-    animation-delay: 0.1s; /* Start at 60% of the first animation's duration (1s * 0.6) */
-}
-
- .delayed-animation {
-    animation-delay: -4s !important; /* 40% of 10s is 4s */
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
 }
 
 .Galeria-lockers-image-column img {
