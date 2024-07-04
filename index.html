@@ -153,15 +153,15 @@
     transform: translateY(-7px);
 }
 
-@keyframes pulse {
+/* Efekt przesunięcia i znikania obrazków */
+@keyframes fall {
     0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
+        transform: translateY(-80%);
+        opacity: 1;
     }
     100% {
-        transform: scale(1);
+        transform: translateY(calc(100vh + 200px)); /* Adjust 200px based on image height */
+        opacity: 0.8;
     }
 }
 
@@ -264,6 +264,10 @@
 
 .Galeria-lockers-image-container img:nth-child(2) {
     animation-delay: 0.1s; /* Start at 60% of the first animation's duration (1s * 0.6) */
+}
+
+ .delayed-animation {
+    animation-delay: -4s !important; /* 40% of 10s is 4s */
 }
 
 .Galeria-lockers-image-column img {
@@ -2738,6 +2742,7 @@ function calculateLockerSavings() {
 document.addEventListener("DOMContentLoaded", () => {
     const columns = document.querySelectorAll('.Galeria-lockers-image-column');
     const animationDuration = 10; // Stała długość animacji dla każdej kolumny
+    const iterationDelayPercentage = 0.4; // 40% zakończenia pierwszej iteracji
 
     columns.forEach((column, columnIndex) => {
         const images = column.children;
@@ -2753,6 +2758,11 @@ document.addEventListener("DOMContentLoaded", () => {
             // Ustaw początkową pozycję dla każdego obrazka
             const topPosition = imgIndex * (100 / numImages); // Równomierne rozłożenie obrazów
             image.style.top = `${topPosition}%`;
+
+            // Dodaj nową klasę z CSS dla opóźnionej iteracji
+            setTimeout(() => {
+                image.classList.add('delayed-animation');
+            }, animationDuration * iterationDelayPercentage * 1000);
         });
     });
 });
