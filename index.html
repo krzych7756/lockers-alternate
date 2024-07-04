@@ -249,12 +249,8 @@
 /* Efekt przesunięcia i znikania obrazków */
 @keyframes fall {
     0% {
-        transform: translateY(-80%);
+        transform: translateY(-100%);
         opacity: 1;
-    }
-    60% {
-        transform: translateY(calc(60vh));
-        opacity: 0.9;
     }
     100% {
         transform: translateY(calc(100vh + 200px)); /* Adjust 200px based on image height */
@@ -267,7 +263,7 @@
 }
 
 .Galeria-lockers-image-container img:nth-child(2) {
-    animation-delay: 10s; /* Start at 60% of the first animation's duration (1s * 0.6) */
+    animation-delay: 0.1s; /* Start at 60% of the first animation's duration (1s * 0.6) */
 }
 
 .Galeria-lockers-image-column img {
