@@ -2741,8 +2741,8 @@ function calculateLockerSavings() {
 }
 document.addEventListener("DOMContentLoaded", () => {
     const columns = document.querySelectorAll('.Galeria-lockers-image-column');
-    const animationDuration = 10; // Stała długość animacji dla każdej kolumny
-    const iterationDelayPercentage = 0.4; // 40% zakończenia pierwszej iteracji
+    const animationDuration = 10; // Czas trwania animacji dla każdej kolumny w sekundach
+    const iterationDelayPercentage = 0.5; // Nowa iteracja zaczyna się, gdy ostatnie zdjęcia osiągną 50% wysokości kontenera
 
     columns.forEach((column, columnIndex) => {
         const images = column.children;
@@ -2752,17 +2752,12 @@ document.addEventListener("DOMContentLoaded", () => {
         Array.from(images).forEach((image, imgIndex) => {
             // Oblicz delay dla każdego obrazka
             const delay = startDelay + imgIndex * (animationDuration / numImages);
-            image.style.animationDelay = `-${delay}s`;
+            image.style.animationDelay = `${delay}s`;
             image.style.animationDuration = `${animationDuration}s`;
 
             // Ustaw początkową pozycję dla każdego obrazka
             const topPosition = imgIndex * (100 / numImages); // Równomierne rozłożenie obrazów
             image.style.top = `${topPosition}%`;
-
-            // Dodaj nową klasę z CSS dla opóźnionej iteracji
-            setTimeout(() => {
-                image.classList.add('delayed-animation');
-            }, animationDuration * iterationDelayPercentage * 1000);
         });
     });
 });
