@@ -257,15 +257,15 @@
     z-index: 1; /* Obrazy mają niższy z-index, aby były pod tytułem */
 }
 
+.Galeria-lockers-images:hover {
+  transform: scale(2); /* Powiększenie o 100% */
+}
+
 .Galeria-lockers-image-column {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-}
-
-.Galeria-lockers-image-column .image:hover {
-  transform: scale(2); /* Powiększenie o 100% */
 }
 
 .Galeria-lockers-image-container {
@@ -281,10 +281,6 @@
     object-fit: cover;
     border-radius: 15px;
     transition: transform 0.3s ease;
-}
-
-.Galeria-lockers-image-container img:hover {
-    transform: scale(1.05);
 }
 
 .Galeria-lockers-image-column {
