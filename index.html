@@ -203,7 +203,7 @@
 }
 
 /* Style dla galerii */
- .cards-gallery-container {
+.cards-gallery-container {
     width: 100%;
     max-width: 1200px;
     border-radius: 15px;
@@ -243,8 +243,8 @@
     position: relative;
     width: 100%;
     z-index: 9;
+    left: 0;
 }
-	
 	
 /* Stylowania zbiorcze dla kontenerów */
 	
@@ -2684,11 +2684,13 @@ document.querySelectorAll('.cards-gallery img').forEach((img, index) => {
             img.classList.remove('active');
             img.style.zIndex = 8 - i; // Przywrócenie z-index dla każdego obrazka
             img.style.width = '12.5%'; // Przywrócenie pierwotnej szerokości
+            img.style.left = (i * 2.5) + '%'; // Przywrócenie pierwotnej pozycji
         });
         // Aktywacja klikniętego obrazka
         img.classList.add('active');
         img.style.zIndex = 9; // Ustawienie najwyższego z-index dla aktywnego obrazka
         img.style.width = '100%'; // Powiększenie aktywnego obrazka
+        img.style.left = '0'; // Ustawienie pozycji na lewo
     });
 });
 </script>
