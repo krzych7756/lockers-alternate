@@ -204,46 +204,46 @@
 
 /* Style dla galerii */
  .cards-gallery-container {
-            width: 100%;
-            max-width: 1200px;
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-        .cards-gallery {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            width: 100%;
-            height: 200px; /* Wysokość kontenera galerii */
-        }
+.cards-gallery {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    height: 200px; /* Wysokość kontenera galerii */
+}
 
-        .cards-gallery img {
-            width: 12.5%; /* 100% / 8 zdjęć */
-            position: absolute;
-            transition: all 0.5s ease-in-out;
-            cursor: pointer;
-            border-radius: 10px;
-        }
+.cards-gallery img {
+    width: 12.5%; /* 100% / 8 zdjęć */
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    border-radius: 10px;
+}
 
-        .cards-gallery img:nth-child(1) { left: 0%; z-index: 8; }
-        .cards-gallery img:nth-child(2) { left: 2.5%; z-index: 7; }
-        .cards-gallery img:nth-child(3) { left: 5%; z-index: 6; }
-        .cards-gallery img:nth-child(4) { left: 7.5%; z-index: 5; }
-        .cards-gallery img:nth-child(5) { left: 10%; z-index: 4; }
-        .cards-gallery img:nth-child(6) { left: 12.5%; z-index: 3; }
-        .cards-gallery img:nth-child(7) { left: 15%; z-index: 2; }
-        .cards-gallery img:nth-child(8) { left: 17.5%; z-index: 1; }
-        
-        .cards-gallery img.active {
-            position: relative;
-            width: 100%;
-            z-index: 9;
-        }
+.cards-gallery img:nth-child(1) { left: 0%; z-index: 8; }
+.cards-gallery img:nth-child(2) { left: 2.5%; z-index: 7; }
+.cards-gallery img:nth-child(3) { left: 5%; z-index: 6; }
+.cards-gallery img:nth-child(4) { left: 7.5%; z-index: 5; }
+.cards-gallery img:nth-child(5) { left: 10%; z-index: 4; }
+.cards-gallery img:nth-child(6) { left: 12.5%; z-index: 3; }
+.cards-gallery img:nth-child(7) { left: 15%; z-index: 2; }
+.cards-gallery img:nth-child(8) { left: 17.5%; z-index: 1; }
+
+.cards-gallery img.active {
+    position: relative;
+    width: 100%;
+    z-index: 9;
+}
 	
 	
 /* Stylowania zbiorcze dla kontenerów */
@@ -2677,16 +2677,14 @@ function calculateLockerSavings() {
         document.getElementById('locker-result').innerText = '';
     }
 }
-document.querySelectorAll('.cards-gallery img').forEach((img, index) => {
+document.querySelectorAll('.cards-gallery img').forEach((img) => {
     img.addEventListener('click', () => {
         // Dezaktywacja wszystkich obrazków
         document.querySelectorAll('.cards-gallery img').forEach((img) => {
             img.classList.remove('active');
-            img.style.display = 'none'; // Ukrycie obrazka
         });
         // Aktywacja klikniętego obrazka
         img.classList.add('active');
-        img.style.display = 'block'; // Pokazanie obrazka
     });
 });
 </script>
