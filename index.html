@@ -2679,12 +2679,16 @@ function calculateLockerSavings() {
 }
 document.querySelectorAll('.cards-gallery img').forEach((img, index) => {
     img.addEventListener('click', () => {
-        // Dezaktywacja wszystkich obrazków
-        document.querySelectorAll('.cards-gallery img').forEach((img) => {
+        // Dezaktywacja wszystkich obrazków i przywrócenie ich do pierwotnej pozycji
+        document.querySelectorAll('.cards-gallery img').forEach((img, i) => {
             img.classList.remove('active');
+            img.style.zIndex = 8 - i; // Przywrócenie z-index dla każdego obrazka
+            img.style.width = '12.5%'; // Przywrócenie pierwotnej szerokości
         });
         // Aktywacja klikniętego obrazka
         img.classList.add('active');
+        img.style.zIndex = 9; // Ustawienie najwyższego z-index dla aktywnego obrazka
+        img.style.width = '100%'; // Powiększenie aktywnego obrazka
     });
 });
 </script>
