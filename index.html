@@ -202,119 +202,45 @@
     }
 }
 
-/* Styl dla głównego kontenera */
-.Galeria-lockers-section {
-    overflow: hidden;
-    position: relative;
-    background: rgba(29, 53, 87, 0.002) !important;
-    backdrop-filter: blur(20px) !important;
-    border-radius: 10px !important;
-    padding: 35px !important;
-    width: 1200px !important;
-    height: 100vh; 
-    box-shadow: none !important; /* Usuwamy cień z głównego kontenera */
-    transition: transform 0.3s ease 0s, opacity 0.3s ease 0s !important;
-    opacity: 1 !important;
-    transform: translateY(20px) !important;
-    margin: 70px 0px !important;
-}
+/* Style dla galerii */
+ .cards-gallery-container {
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 15px;
+            overflow: hidden;
+            opacity: 0.7;
+            position: relative;
+        }
 
-.Galeria-lockers-title {
-    position: absolute !important;
-    top: 40px !important;
-    left: 50px !important;
-    font-size: 52px !important; /* Zwiększam rozmiar tekstu dla intensywniejszego efektu */
-    font-weight: bold !important;
-    color: rgb(25, 46, 76) !important;
-    z-index: 200 !important;
-    overflow: hidden; /* Ukrywam overflow, aby prostokąty nie wystawały poza kontener */
-    background-image: url('https://gryc24.pl/res/files/lockers-lp-galeria5.svg'); /* tło graficzne */
-    background-size: cover; /* Dopasuj rozmiar tła do wielkości elementu */
-    background-position: top right; /* Pozycja tła w prawym górnym rogu */
-}
-.Galeria-lockers-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://gryc24.pl/res/files/lockers-lp-galeria5.svg'); /* tło graficzne */
-    background-size: cover; /* Dopasuj rozmiar tła do wielkości elementu */
-    background-position: center center; /* Pozycja tła na środku */
-    z-index: 30; /* Ustaw z-index na niższy niż tytuł, aby tekst był widoczny nad tłem */
-}
+        .cards-gallery {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            width: 100%;
+        }
 
-/* Styl dla obrazków */
-.Galeria-lockers-images {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    z-index: 1; /* Obrazy mają niższy z-index, aby były pod tytułem */
-}
+        .cards-gallery img {
+            width: 12.5%; /* 100% / 8 zdjęć */
+            position: absolute;
+            transition: all 0.5s ease-in-out;
+            cursor: pointer;
+            border-radius: 10px;
+        }
 
-.Galeria-lockers-images img:hover {
-  transform: scale(2); /* Powiększenie o 100% */
-}
-
-.Galeria-lockers-image-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.Galeria-lockers-image-container {
-    position: relative;
-    width: 200px;
-    height: 300px;
-    animation: fall 10s linear infinite;
-}
-
-.Galeria-lockers-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-    transition: transform 0.3s ease;
-}
-
-.Galeria-lockers-image-column {
-  position: relative;
-  overflow: hidden;
-  height: 100%; /* Dostosuj do wysokości kontenera */
-}
-
-.Galeria-lockers-image-column .image {
-  position: absolute;
-  width: 100%; /* Dostosuj do szerokości obrazka */
-  animation: fall linear infinite;
-}
-
-@keyframes fall {
-  0% {
-    transform: translateY(-100%);
-  }
-  50% {
-    transform: translateY(50%);
-  }
-  100% {
-    transform: translateY(100%);
-  }
-}
-
-.Galeria-lockers-image-column img {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    animation-name: fall;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
+        .cards-gallery img:nth-child(1) { left: 0%; z-index: 8; }
+        .cards-gallery img:nth-child(2) { left: 2.5%; z-index: 7; }
+        .cards-gallery img:nth-child(3) { left: 5%; z-index: 6; }
+        .cards-gallery img:nth-child(4) { left: 7.5%; z-index: 5; }
+        .cards-gallery img:nth-child(5) { left: 10%; z-index: 4; }
+        .cards-gallery img:nth-child(6) { left: 12.5%; z-index: 3; }
+        .cards-gallery img:nth-child(7) { left: 15%; z-index: 2; }
+        .cards-gallery img:nth-child(8) { left: 17.5%; z-index: 1; }
+        
+        .cards-gallery img.active {
+            position: relative;
+            width: 100%;
+            z-index: 9;
+        }
 	
 	
 /* Stylowania zbiorcze dla kontenerów */
@@ -1931,43 +1857,18 @@ padding: 10px;
 </div>
 
 <body>
-	 <section class="Galeria-lockers-section">
-    <div class="Galeria-lockers-title">Zdjęcia z realizacji</div>
-    <div class="Galeria-lockers-images">
-        <div class="Galeria-lockers-image-column">
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_1.png?updatedAt=1711181535020" alt="Surreal 1"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_2.jpg?updatedAt=1711181533937" alt="Surreal 2"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_3.jpg?updatedAt=1711181533653" alt="Surreal 3"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_4.jpg?updatedAt=1711181533648" alt="Surreal 4"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_1.png?updatedAt=1711181535020" alt="Surreal 1"></div>
-             <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_2.jpg?updatedAt=1711181533937" alt="Surreal 2"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_3.jpg?updatedAt=1711181533653" alt="Surreal 3"></div>
-        </div>
-        <div class="Galeria-lockers-image-column">
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_2.jpg?updatedAt=1711181533937" alt="Surreal 2"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_3.jpg?updatedAt=1711181533653" alt="Surreal 3"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_4.jpg?updatedAt=1711181533648" alt="Surreal 4"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_1.png?updatedAt=1711181535020" alt="Surreal 1"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_2.jpg?updatedAt=1711181533937" alt="Surreal 2"></div>
-        </div>
-        <div class="Galeria-lockers-image-column">
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_3.jpg?updatedAt=1711181533653" alt="Surreal 3"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_4.jpg?updatedAt=1711181533648" alt="Surreal 4"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_1.png?updatedAt=1711181535020" alt="Surreal 1"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_2.jpg?updatedAt=1711181533937" alt="Surreal 2"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_3.jpg?updatedAt=1711181533653" alt="Surreal 3"></div>
-             <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_2.jpg?updatedAt=1711181533937" alt="Surreal 2"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_3.jpg?updatedAt=1711181533653" alt="Surreal 3"></div>
-        </div>
-        <div class="Galeria-lockers-image-column">
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_4.jpg?updatedAt=1711181533648" alt="Surreal 4"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_1.png?updatedAt=1711181535020" alt="Surreal 1"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_2.jpg?updatedAt=1711181533937" alt="Surreal 2"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_3.jpg?updatedAt=1711181533653" alt="Surreal 3"></div>
-            <div class="Galeria-lockers-image-container"><img src="https://ik.imagekit.io/ei5bqbiry/Landing%20Page/Generations/Surreal/tr:h-512/surrea_4.jpg?updatedAt=1711181533648" alt="Surreal 4"></div>
+	   <div class="cards-gallery-container">
+        <div class="cards-gallery">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image 1">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image 2">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image 3">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image 4">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image 5">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image 6">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image 7">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image 8">
         </div>
     </div>
-</section>
 	
 <!-- Adding margin between sections -->
 <section class="bg-light section-padding" data-aos="fade-right">
@@ -2776,27 +2677,13 @@ function calculateLockerSavings() {
         document.getElementById('locker-result').innerText = '';
     }
 }
-document.addEventListener("DOMContentLoaded", () => {
-    const columns = document.querySelectorAll('.Galeria-lockers-image-column');
-    const animationDuration = 10; // Czas trwania animacji dla każdej kolumny w sekundach
-    const iterationDelayPercentage = 0.5; // Nowa iteracja zaczyna się, gdy ostatnie zdjęcia osiągną 50% wysokości kontenera
-
-    columns.forEach((column, columnIndex) => {
-        const images = column.children;
-        const numImages = images.length;
-        const startDelay = columnIndex * 1.5; // Opóźnienie startu dla każdej kolumny
-
-        Array.from(images).forEach((image, imgIndex) => {
-            // Oblicz delay dla każdego obrazka
-            const delay = startDelay + imgIndex * (animationDuration / numImages);
-            image.style.animationDelay = `${delay}s`;
-            image.style.animationDuration = `${animationDuration}s`;
-
-            // Ustaw początkową pozycję dla każdego obrazka
-            const topPosition = imgIndex * (100 / numImages); // Równomierne rozłożenie obrazów
-            image.style.top = `${topPosition}%`;
+ document.querySelectorAll('.cards-gallery img').forEach((img, index) => {
+            img.addEventListener('click', () => {
+                document.querySelectorAll('.cards-gallery img').forEach((img) => {
+                    img.classList.remove('active');
+                });
+                img.classList.add('active');
+            });
         });
-    });
-});
 </script>
 </html>
