@@ -2677,7 +2677,7 @@ function calculateLockerSavings() {
         document.getElementById('locker-result').innerText = '';
     }
 }
-document.querySelectorAll('.cards-gallery img').forEach((img) => {
+document.querySelectorAll('.cards-gallery img').forEach((img, index) => {
     img.addEventListener('click', () => {
         // Dezaktywacja wszystkich obrazków
         document.querySelectorAll('.cards-gallery img').forEach((img) => {
