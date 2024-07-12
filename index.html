@@ -1364,6 +1364,7 @@ img.unique-img {
         height: 100vh;
         display: block;
         background: url('https://gryc24.pl/res/files/hero-lp-mobile.png') no-repeat center center/contain;
+	    overflow-x: hidden;
     }
 
     .hero a {
@@ -1378,12 +1379,14 @@ img.unique-img {
         font-size: 1em;
         transition: background 0.3s ease, transform 0.3s ease;
         animation: fadeIn 1s ease-out;
+	    overflow-x: hidden;
     }
 
     .hero-content {
         display: flex;
         width: 100%;
         justify-content: center;
+	    overflow-x: hidden;
     }
 
     .hero h1 {
@@ -1411,10 +1414,12 @@ img.unique-img {
     .section, .values, .cta, .contact-form, .use-cases, .testimonials, .creator, .product-images, .stats, footer {
         padding: 1.25em 0.625em;
         margin: 0.625em 0;
+	    overflow-x: hidden;
     }
 
     .values, .use-cases, .stats {
         flex-direction: column;
+	    overflow-x: hidden;
     }
 
     .values .value-item {
@@ -1424,34 +1429,42 @@ img.unique-img {
         transition: transform 0.3s ease, max-height 0.3s ease;
         overflow: hidden;
         max-height: 12.5em;
+	    overflow-x: hidden;
     }
 
     .values .value-item.expanded {
         transform: translateY(0);
         max-height: 12.5em;
+	    overflow-x: hidden;
     }
 
     .values .value-item:hover {
         transform: translateX(0%);
+	    overflow-x: hidden;
     }
+	
 
     .values .value-item.hover-reset {
         transform: translateX(0);
+	    overflow-x: hidden;
     }
 
     .container-unique {
         width: 100%;
         margin: 0.625em 0;
+	    overflow-x: hidden;
     }
 
     .unique-img, .product-images img, .carousel-item img {
         width: 100%;
         height: auto;
         max-height: 80vh;
+	    overflow-x: hidden;
     }
 
     .testimonials .container-opinion-section {
         flex-direction: column;
+	    overflow-x: hidden;
     }
 
     .creator {
@@ -1459,6 +1472,7 @@ img.unique-img {
         height: auto;
         margin: 0.625em 0;
         padding: 1.25em;
+	    overflow-x: hidden;
     }
 
     .quote {
@@ -1466,9 +1480,10 @@ img.unique-img {
     }
 
     .contact-form form, .contact-card, .opinion-section {
-        width: 100%;
+        width: 80%;
         margin: 0.625em 0;
         padding: 1.25em;
+	    overflow-x: hidden;
     }
 
     header, footer {
@@ -1486,8 +1501,9 @@ img.unique-img {
     }
 
     .quote, .creator-info, .container-all-unique, .contact-card-content {
-        width: 100%;
+        width: 80%;
         text-align: center;
+	    overflow-x: hidden;
     }
 
     .contact-label {
@@ -1504,6 +1520,7 @@ img.unique-img {
         bottom: 0;
         transition: transform 0.3s ease-in-out;
         transform: translateY(0);
+	    overflow-x: hidden;
     }
 
     .contact-card {
@@ -1519,6 +1536,7 @@ img.unique-img {
         text-align: center;
         bottom: 0;
         transform: translateY(100%);
+	    overflow-x: hidden;
     }
 
     .contact-card.open {
@@ -1558,11 +1576,13 @@ img.unique-img {
 
     .container {
         flex-direction: column;
+	    overflow-x: hidden;
     }
 
     .feature-item, .iconsbig, .font-alt, .text-muted, .creator-wrapper {
-        width: 100%;
+        width: 80%;
         margin: 0.625em 0;
+	    overflow-x: hidden;
     }
 
     .cta a, .contact-form form button, .creator img, .product-images img, .stats-item h3, .stats-item h2, .stats-item p {
@@ -1572,23 +1592,25 @@ img.unique-img {
     .bg-light {
         background-color: #f8f9fa;
         height: 330vh;
-        width: 100%;
+        width: 80%;
+	    overflow-x: hidden;
     }
 
     .container.px-5 {
         justify-content: space-between;
         padding: 0.625em;
         min-height: 2000px;
-        width: 100%;
+        width: 80%;
         box-sizing: border-box;
     }
 
     .row.gx-5 {
         padding: 0.625em;
         min-height: auto;
-        width: 100%;
+        width: 80%;
         box-sizing: border-box;
         margin: 0;
+	    overflow-x: hidden;
     }
 
     .use-cases .carousel {
@@ -1596,19 +1618,21 @@ img.unique-img {
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        height: 84vh;
+        height: 78vh;
         padding: 0.625em;
         flex-wrap: nowrap;
         scroll-behavior: smooth;
         box-sizing: border-box;
         scroll-snap-align: center;
         overflow-y: hidden;
+	    overflow-x: hidden;
+	    overflow-y: hidden;
     }
 
     .use-cases .carousel-item {
         scroll-snap-align: center;
         flex: none;
-        width: 85vw;
+        width: 76vw;
         margin: 0 0.625em;
         background: #ffffff;
         padding: 1.25em;
@@ -1625,6 +1649,7 @@ img.unique-img {
         gap: 0.3125em;
         box-sizing: border-box;
         overflow-y: hidden;
+	    overflow-x: hidden;
     }
 
     .use-cases .carousel-item button {
@@ -1680,7 +1705,7 @@ img.unique-img {
     }
 
     .use-cases {
-        max-width: 100%;
+        max-width: 90%;
         margin: 0.625em auto;
     }
 
@@ -1729,8 +1754,9 @@ img.unique-img {
 
     .gryc-section {
         padding: 0.625em;
-        max-width: 100%;
+        max-width: 90%;
         margin: 0.625em auto;
+	    overflow-x: hidden;
     }
 
     .cta a, .contact-form form button {
@@ -1754,12 +1780,14 @@ img.unique-img {
 
     .outer-container {
         min-height: auto !important;
-        width: 100% !important;
+        width: 90% !important;
+	    overflow-x: hidden;
     }
 
     .cta.show, .testimonials.show, .contact-form.show {
-        max-width: 100%;
+        max-width: 90%;
         margin: 0.625em auto;
+	    overflow-x: hidden;
     }
 
     .contact-label, .contact-card {
@@ -1774,7 +1802,7 @@ img.unique-img {
 
     @media (max-width: 768px) {
         section.card {
-            max-width: 100%;
+            max-width: 90%;
             margin: 0.625em auto;
         }
     }
