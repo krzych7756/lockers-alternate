@@ -1353,6 +1353,10 @@ img.unique-img {
 /* RWD */
 
 @media only screen and (max-width: 600px) {
+    body {
+        overflow-x: hidden; /* Zapobiega przesuwaniu strony na boki */
+    }
+
     .hero {
         height: 100vh;
         display: flex;
@@ -1362,6 +1366,8 @@ img.unique-img {
         background: url('https://gryc24.pl/res/files/hero-lp-mobile.png') no-repeat center center/contain;
         text-align: center;
         width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
     }
     
     .hero-content {
@@ -1371,7 +1377,6 @@ img.unique-img {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 20px;
         width: 100%;
     }
     
@@ -1402,7 +1407,7 @@ img.unique-img {
         padding: 20px;
         margin: 20px;
         width: calc(100% - 40px);
-        max-width: 100%;
+        box-sizing: border-box;
     }
     
     .cards-gallery {
@@ -1414,7 +1419,7 @@ img.unique-img {
     }
     
     .cards-gallery img {
-        width: 80%;
+        width: 100%;
         margin-bottom: 10px;
         border-radius: 10px;
     }
@@ -1424,16 +1429,17 @@ img.unique-img {
         margin: 20px 0;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
+        width: calc(100% - 40px);
+        box-sizing: border-box;
+        overflow: hidden;
     }
     
     .contact-form {
-        width: calc(100% - 40px);
-        max-width: 100%;
+        width: 100%;
     }
     
     .snip1533 {
-        width: calc(100% - 40px);
-        max-width: 100%;
+        width: 100%;
         margin: 20px 0;
     }
     
@@ -1444,36 +1450,55 @@ img.unique-img {
     }
     
     .value-card {
-        width: calc(100% - 40px);
-        max-width: 100%;
+        width: 100%;
         margin: 10px 0;
     }
     
     .cta {
-        width: calc(100% - 40px);
-        max-width: 100%;
+        width: 100%;
     }
     
     .use-cases {
-        width: calc(100% - 40px);
-        max-width: 100%;
+        width: 100%;
     }
-    
+
+    .carousel-container {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .carousel {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .carousel-item {
+        flex: none;
+        width: 80%;
+        margin: 0 10px;
+        scroll-snap-align: center;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(40, 1, 125, 0.2);
+        text-align: center;
+    }
+
     .creator {
-        width: calc(100% - 40px);
-        max-width: 100%;
+        width: 100%;
         margin: 20px 0;
     }
     
     .opinion-section {
-        width: calc(100% - 40px);
-        max-width: 100%;
+        width: 100%;
     }
     
     .stats {
         flex-direction: column;
         align-items: center;
         padding: 20px;
+        width: 100%;
     }
     
     .stats-item {
@@ -1482,42 +1507,63 @@ img.unique-img {
     
     .faq {
         padding: 20px;
+        width: 100%;
     }
     
     .feature-item {
         margin-bottom: 20px;
+        width: 100%;
     }
     
     footer {
         padding: 20px;
+        width: 100%;
     }
     
     .container-all-unique {
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
     
     .container-unique {
-        width: calc(100% - 40px);
-        max-width: 100%;
+        width: 100%;
         margin: 10px 0;
     }
     
     .locker-container-wrapper {
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
     
     .locker-calculator-container, .locker-image-placeholder {
-        width: calc(100% - 40px);
-        max-width: 100%;
+        width: 100%;
+        margin: 20px 0;
     }
     
     .locker-image-placeholder {
         margin-top: 20px;
     }
-}
 
+    .bg-light {
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px 0;
+        width: calc(100% - 40px);
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px;
+        box-sizing: border-box;
+    }
+
+    .bg-light h2 {
+        margin-bottom: 30px;
+        margin-top: 30px;
+        text-align: center;
+        color: rgb(29, 53, 87);
+    }
+}
 
 	
 </style>
