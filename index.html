@@ -122,17 +122,15 @@
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: 0;
-    left: 50%;
+    bottom: -2px; /* Adjust this value to move the line closer or further from the text */
+    left: 0;
     background-color: #000;
-    transition: width 1s ease, left 1s ease;
+    transition: width 1s ease;
 }
 
 .main-menu li a:hover::after {
     width: 100%;
-    left: 0;
 }
-
 
 .button-wrap .border {
     border: 1px solid #000;
