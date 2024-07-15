@@ -109,12 +109,15 @@
 
 .main-menu li {
     margin-right: 20px;
+    position: relative;
 }
 
 .main-menu li a {
     text-decoration: none;
     color: #000;
     font-size: 16px;
+    display: inline-block;
+    position: relative;
 }
 
 .main-menu li a::after {
@@ -122,7 +125,7 @@
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: -2px; /* Adjust this value to move the line closer or further from the text */
+    bottom: -3px; /* Adjust this value to move the line closer or further from the text */
     left: 0;
     background-color: #000;
     transition: width 1s ease;
