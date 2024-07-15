@@ -66,6 +66,88 @@
 		    justify-content: center;
             align-items: center;
         }
+
+	.top-fixed-wrapper {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1100;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.container-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    max-width: 1400px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.logo img {
+    height: 24px;
+}
+
+#nav {
+    display: flex;
+    align-items: center;
+}
+
+.main-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.main-menu li {
+    margin-right: 20px;
+}
+
+.main-menu li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+}
+
+.button-wrap .border {
+    border: 1px solid #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+}
+
+.wpml-ls-slot-shortcode_actions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.wpml-ls-slot-shortcode_actions ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.wpml-ls-item-toggle {
+    cursor: pointer;
+}
+
+.wpml-ls-flag {
+    height: 24px;
+    width: 32px;
+}
+
+.nav-toggle {
+    display: none;
+}
    
         .glass {
             background: rgba(255, 255, 255, 0.6);
@@ -1813,6 +1895,70 @@ body {
             <a href="#testimonials">Opinie</a>
             <a href="#creator">Twórca</a>
         </nav>
+   <div class="top-fixed-wrapper">
+        <div class="container-flex">
+            <span class="logo">
+                <a href="https://hakner.eu/" rel="home">
+                    <img src="https://hakner.eu/wp-content/themes/hakner/images/logo.svg" alt="Hakner">
+                </a>
+            </span>
+
+            <div id="nav">
+                <ul id="menu-menu-glowne" class="main-menu">
+                    <li class="menu-item"><a href="https://hakner.eu/oferta/">Nasza oferta</a></li>
+                    <li class="menu-item"><a href="https://hakner.eu/o-marce/">O marce</a></li>
+                    <li class="menu-item"><a href="https://hakner.eu/sklep-internetowy/">Sklep internetowy</a></li>
+                    <li class="menu-item"><a href="https://hakner.eu/strefa-b2b/">Strefa B2B</a></li>
+                </ul>
+                <div class="button-wrap">
+                    <a href="https://hakner.eu/kontakt" class="border">Kontakt</a>
+                </div>
+                <div class="wpml-ls-statics-shortcode_actions wpml-ls wpml-ls-legacy-dropdown js-wpml-ls-legacy-dropdown">
+                    <ul>
+                        <li tabindex="0" class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-pl wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-dropdown">
+                            <a href="#" class="js-wpml-ls-item-toggle wpml-ls-item-toggle">
+                                <img class="wpml-ls-flag" src="https://hakner.eu/wp-content/uploads/flags/poland.svg" alt="Polski" width="32" height="24">
+                            </a>
+                            <ul class="wpml-ls-sub-menu">
+                                <li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-en">
+                                    <a href="https://hakner.eu/en/produkty/drawer-slides/" class="wpml-ls-link">
+                                        <img class="wpml-ls-flag" src="https://hakner.eu/wp-content/uploads/flags/united-kingdom.svg" alt="Angielski" width="32" height="24">
+                                    </a>
+                                </li>
+                                <li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-de">
+                                    <a href="https://hakner.eu/de/produkty/fuehrungen-fuer-schubladen/" class="wpml-ls-link">
+                                        <img class="wpml-ls-flag" src="https://hakner.eu/wp-content/plugins/sitepress-multilingual-cms/res/flags/de.svg" alt="Niemiecki" width="32" height="24">
+                                    </a>
+                                </li>
+                                <li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-cs">
+                                    <a href="https://hakner.eu/cs/produkty/zasuvkove-vysuvy/" class="wpml-ls-link">
+                                        <img class="wpml-ls-flag" src="https://hakner.eu/wp-content/plugins/sitepress-multilingual-cms/res/flags/cs.svg" alt="Czeski" width="32" height="24">
+                                    </a>
+                                </li>
+                                <li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-ro">
+                                    <a href="https://hakner.eu/ro/produkty/glisiere-pentru-sertare/" class="wpml-ls-link">
+                                        <img class="wpml-ls-flag" src="https://hakner.eu/wp-content/plugins/sitepress-multilingual-cms/res/flags/ro.svg" alt="Rumuński" width="32" height="24">
+                                    </a>
+                                </li>
+                                <li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-uk">
+                                    <a href="https://hakner.eu/uk/produkty/%d0%bd%d0%b0%d0%bf%d1%80%d0%b0%d0%b2%d0%bb%d1%8f%d1%8e%d1%87%d1%96-%d0%b4%d0%bb%d1%8f-%d1%8f%d1%89%d0%b8%d0%ba%d1%96%d0%b2/" class="wpml-ls-link">
+                                        <img class="wpml-ls-flag" src="https://hakner.eu/wp-content/plugins/sitepress-multilingual-cms/res/flags/uk.svg" alt="Ukraiński" width="32" height="24">
+                                    </a>
+                                </li>
+                                <li class="wpml-ls-slot-shortcode_actions wpml-ls-item wpml-ls-item-fr wpml-ls-last-item">
+                                    <a href="https://hakner.eu/fr/produkty/coulisses-a-billes-pour-tiroirs/" class="wpml-ls-link">
+                                        <img class="wpml-ls-flag" src="https://hakner.eu/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.svg" alt="Francuski" width="32" height="24">
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <button class="nav-toggle">Menu</button>
+        </div>
+    </div>
+	
     </header>
     <section class="hero">
         <div class="hero-content">
